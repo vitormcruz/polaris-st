@@ -49,7 +49,7 @@ Polaris >> baselineSourceFor: projectNameString [
 
 		"MaterialDesignLite must be declared after Seaside3 so that the correct version of Grease (1.7.x) is taken, otherwise, version 1.5.0 is taken"
   	   baseline: ''MaterialDesignLite''	with: [ spec repository: ''github://DuneSt/MaterialDesignLite:v2.4.1/src''; loads: #(core) ];	
-		baseline: ''ValidationNotification'' with: [ spec repository: ''github://vitormcruz/st_validation_notification:master/pharo''; loads: #(core) ];
+		baseline: ''ValidationNotification'' with: [ spec repository: ''github://vitormcruz/validation-sensor:master/pharo''; loads: #(core) ];
 
 		package: ''{1}-Core'';
 		package: ''{1}-Adapter'' with: [ spec requires: #(''Seaside-Core'' ''MaterialDesignLite'') ];
