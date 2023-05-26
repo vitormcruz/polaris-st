@@ -20,7 +20,7 @@ BaselineOfPolaris >> baseline: spec [
  	   baseline: 'Tome' with: [ spec repository: 'github://vitormcruz/tome:develop/pharo'; loads: #(core) ];
 
   	   baseline: 'MaterialDesignLite'	with: [ spec repository: 'github://DuneSt/MaterialDesignLite:v2.4.2/src'; loads: #(core) ];	
-		baseline: 'ValidationNotification' with: [ spec repository: 'github://vitormcruz/st_validation_notification:master/pharo'; loads: #(core) ];
+		baseline: 'ValidationNotification' with: [ spec repository: 'github://vitormcruz/validation-sensor:master/pharo'; loads: #(core) ];
 
 		package: 'Polaris-Core' with: [ spec requires: #('LangExtensions' 'MaterialDesignLite' 'ValidationNotification') ];
 		package: 'Polaris-Tests' with: [ spec requires: #('Polaris-Core' 'Buoy-Tests' 'Tome') ];
