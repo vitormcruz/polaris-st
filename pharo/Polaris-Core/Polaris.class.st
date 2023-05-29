@@ -111,7 +111,7 @@ Polaris >> createEntity: anEntityName forProject: aProjectName [
 { #category : #'project creation' }
 Polaris >> createFeature: aFeatureTitle forProject: aProjectName [ 
 
-	^ (Object << aFeatureTitle asSymbol)
+	^ (TomeFeature  << aFeatureTitle asSymbol)
 			slots: {  };
 			package: aProjectName, '-AcceptanceCriteria';
 			install.
