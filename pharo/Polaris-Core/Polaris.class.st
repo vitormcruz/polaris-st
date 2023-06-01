@@ -1,16 +1,29 @@
 Class {
 	#name : #Polaris,
 	#superclass : #Object,
+	#instVars : [
+		'projectName',
+		'configList'
+	],
 	#category : #'Polaris-Core'
 }
 
 { #category : #'project creation' }
-Polaris class >> newProjectNamed: projectNameString [
+Polaris class >> newProject [
 
-	super new newProjectNamed: projectNameString.
+	
+	^ self  new.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'project creation' }
+Polaris class >> newProjectNamed: projectNameString [
+
+	"Create a new project using defaults configurations"
+
+	self  new newProjectNamed: projectNameString.
+]
+
+{ #category : #'project creation' }
 Polaris >> activateMethodSourceForProject: projectName [
 
 
@@ -63,6 +76,20 @@ Polaris >> baselineSourceFor: projectNameString [
 		group: ''test'' with: #(core ''{1}-Tests'' ''{1}-AcceptanceCriteria'');
 		group: ''dev'' with: #(test ''Seaside-Dev'')
 	].' format: { projectNameString }
+]
+
+{ #category : #'instance creation' }
+Polaris >> create [
+
+	| baselineName |
+	
+	baselineName := 'BaselineOf' , projectName.
+	
+	self createBaselineClassUsing: baselineName forProject: projectName.
+	PolBasicHelloWorldDecorator decorate: self.
+	self createFeature: 'HelloWorldFeature' forProject: projectName.
+	self createBasicSeasideApplicationForProject: projectName.
+	self createMainClassForProject: projectName.
 ]
 
 { #category : #'baseline creation' }
@@ -134,16 +161,27 @@ Polaris >> createMainClassForProject: projectName [
 	(appClass compiledMethodAt: #activate) protocol: 'activate'
 ]
 
+{ #category : #initialization }
+Polaris >> initialize [ 
+
+	configList := OrderedCollection new.
+	
+]
+
+{ #category : #'new project config' }
+Polaris >> named: aName [
+
+	projectName := aName.
+]
+
 { #category : #'instance creation' }
 Polaris >> newProjectNamed: projectNameString [
 
-	| baselineName |
-	
-	baselineName := 'BaselineOf' , projectNameString.
-	
-	self createBaselineClassUsing: baselineName forProject: projectNameString.
-	self createEntity: 'HelloWorld' forProject: projectNameString.
-	self createFeature: 'HelloWorldFeature' forProject: projectNameString.
-	self createBasicSeasideApplicationForProject: projectNameString.
-	self createMainClassForProject: projectNameString.
+	self named: projectNameString; create.
+]
+
+{ #category : #accessing }
+Polaris >> projectName [
+
+	^ projectName
 ]
