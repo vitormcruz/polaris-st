@@ -1,7 +1,7 @@
 Class {
-	#name : #PolProjectConfForSeaside,
+	#name : #PolDummyDecorator,
 	#superclass : #Object,
 	#traits : 'TPolProjectDecorator',
 	#classTraits : 'TPolProjectDecorator classTrait',
-	#category : #'Polaris-Core-Decorator'
+	#category : #'Polaris-Tests-Decorator'
 }

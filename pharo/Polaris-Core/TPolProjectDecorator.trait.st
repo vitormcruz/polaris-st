@@ -34,5 +34,6 @@ TPolProjectDecorator >> description [
 { #category : #accessing }
 TPolProjectDecorator >> project: aPolarisProject [
 
+	aPolarisProject ifNil: [ self error: 'Cannot decorate a nil Project' ].
 	project := aPolarisProject
 ]
