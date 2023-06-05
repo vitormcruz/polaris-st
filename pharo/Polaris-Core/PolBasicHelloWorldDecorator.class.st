@@ -14,12 +14,16 @@ PolBasicHelloWorldDecorator >> decorate [
 
 	"Will be called during the project creation to make it's decoration "
 	
-	(Object << 'HelloWorld' asSymbol)
+	| acronym |
+	
+	acronym := project acronym.
+	
+	(Object << (acronym, 'HelloWorld') asSymbol)
 			slots: {  };
 		   package: project projectName, '-Core';
 		   install.
 		
-	(Object << ('HelloWorld', 'Test') asSymbol)
+	(Object << (acronym, 'HelloWorldTest') asSymbol)
 			slots: {  };
 		   package: project projectName, '-Tests';
 		   install.

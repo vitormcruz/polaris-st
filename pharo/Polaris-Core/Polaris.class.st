@@ -3,7 +3,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'projectName',
-		'configList'
+		'configList',
+		'acronym'
 	],
 	#category : #'Polaris-Core'
 }
@@ -21,6 +22,20 @@ Polaris class >> newProjectNamed: projectNameString [
 	"Create a new project using defaults configurations"
 
 	self  new newProjectNamed: projectNameString.
+]
+
+{ #category : #accessing }
+Polaris >> acronym [
+
+	^ acronym.
+]
+
+{ #category : #accessing }
+Polaris >> acronym: aString [
+
+	"Defines an Acronym for classes to be created with."
+
+	acronym := aString.
 ]
 
 { #category : #'project creation' }

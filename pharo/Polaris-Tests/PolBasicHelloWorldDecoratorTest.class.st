@@ -18,14 +18,16 @@ PolBasicHelloWorldDecoratorTest >> test_decorate_project_creates_correct_srtuctu
 
 	| projectMock |
 	
-	self expectedPackageCreated: 'PolHelloWorld-Core'.
-	self expectedPackageCreated: 'PolHelloWorldTest-Test'.
+	self expectedPackageCreated: 'PolTestHelloWorld-Core'.
+	self expectedPackageCreated: 'PolTestHelloWorld-Test'.
 	
 	projectMock := Mock new.
-	projectMock  stub  willReturn: 'PolHelloWorld'.
+	projectMock stub projectName willReturn: 'PolTestHelloWorld'.
+	projectMock stub acronym willReturn: 'PolTst'.
 	
 	PolBasicHelloWorldDecorator decorate: projectMock.
 	
-	self assertClass: #PolHelloWorld asClass isAtPackage: 'PolHelloWorldTest-Test'.
+	self assertClass: #PolTstHelloWorld asClass isAtPackage: 'PolTestHelloWorld-Core'.
+	self assertClass: #PolTstHelloWorldTest asClass isAtPackage: 'PolTestHelloWorld-Tests'.
 
 ]
