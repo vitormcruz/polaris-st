@@ -1,5 +1,5 @@
 Class {
-	#name : #PolProjectConfForSeaside,
+	#name : #PolSeasideDecorator,
 	#superclass : #Object,
 	#traits : 'TPolProjectDecorator',
 	#classTraits : 'TPolProjectDecorator classTrait',

@@ -7,6 +7,13 @@ Trait {
 }
 
 { #category : #'test util' }
+TPolNewProjectUtils >> assertClass:  aClass isAtPackage: aPackageName [
+
+	self assert: ((RPackage organizer packageNamed: aPackageName) definedClasses includes: aClass) 
+	        description: 'The expeted class ', aClass name,  ' was not created inside the package',  aPackageName.
+]
+
+{ #category : #'test util' }
 TPolNewProjectUtils >> createProjectForTestNamed: projectNameString [
 
 	self expectedPackageCreated: 'BaselineOf' , projectNameString.

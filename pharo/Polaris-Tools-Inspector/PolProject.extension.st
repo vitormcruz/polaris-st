@@ -1,7 +1,7 @@
-Extension { #name : #Polaris }
+Extension { #name : #PolProject }
 
 { #category : #'*Polaris-Tools-Inspector' }
-Polaris >> inspectPolarisIn:  specBuilder [
+PolProject class >> inspectProjectIn:  specBuilder [
 	<inspectorPresentationOrder: 1000 title: 'BlaBla'>
 	
 	^  specBuilder newRoassal canvas: (RSCanvas new add: (RSLabel new text: 'Hello from Roassal'); yourself ).

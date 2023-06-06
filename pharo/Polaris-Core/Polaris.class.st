@@ -24,6 +24,14 @@ Polaris class >> newProjectNamed: projectNameString [
 	self  new newProjectNamed: projectNameString.
 ]
 
+{ #category : #'project creation' }
+Polaris class >> newProjectNamed: projectNameString withAcronym: aString [
+
+	"Create a new project using defaults configurations"
+
+	self new newProjectNamed: projectNameString withAcronym: aString.
+]
+
 { #category : #accessing }
 Polaris >> acronym [
 
@@ -101,10 +109,10 @@ Polaris >> create [
 	baselineName := 'BaselineOf' , projectName.
 	
 	self createBaselineClassUsing: baselineName forProject: projectName.
+	self createMainClassForProject: projectName.
 	PolBasicHelloWorldDecorator decorate: self.
 	self createFeature: 'HelloWorldFeature' forProject: projectName.
 	self createBasicSeasideApplicationForProject: projectName.
-	self createMainClassForProject: projectName.
 ]
 
 { #category : #'baseline creation' }
@@ -117,9 +125,8 @@ Polaris >> createBaselineClassUsing: baselineName forProject: projectNameString 
 		                 package: baselineName;
 		                 install.
 
-	baselineClass compile: (self baselineSourceFor: projectNameString).
-
-	(baselineClass compiledMethodAt: #baseline:) protocol: 'baseline'
+	baselineClass compile: (self baselineSourceFor: projectNameString)
+					  classified: 'baseline'.
 ]
 
 { #category : #'project creation' }
@@ -160,26 +167,26 @@ Polaris >> createFeature: aFeatureTitle forProject: aProjectName [
 ]
 
 { #category : #'project creation' }
-Polaris >> createMainClassForProject: projectName [
+Polaris >> createMainClassForProject:  aProjectName [
 
 	| appClass appClassPackage |
-	appClassPackage := projectName , '-Config'.
+	appClassPackage := aProjectName , '-Config'.
 
-	appClass := (CommandLineHandler << (projectName , 'Main') asSymbol)
+	appClass := (CommandLineHandler << (aProjectName , 'Main') asSymbol)
 		            slots: {  };
 		            package: appClassPackage;
 		            install.
 
 
-	appClass compile: (self activateMethodSourceForProject: projectName).
-
-	(appClass compiledMethodAt: #activate) protocol: 'activate'
+	appClass compile: (self activateMethodSourceForProject: aProjectName)
+				classified: 'activate'.
 ]
 
 { #category : #initialization }
 Polaris >> initialize [ 
 
 	configList := OrderedCollection new.
+	acronym := ''.
 	
 ]
 
@@ -193,6 +200,33 @@ Polaris >> named: aName [
 Polaris >> newProjectNamed: projectNameString [
 
 	self named: projectNameString; create.
+]
+
+{ #category : #'instance creation' }
+Polaris >> newProjectNamed: projectNameString withAcronym: acronymString [ 
+
+	| projectClass projectName2 |
+
+	projectName2 := acronymString, projectNameString.
+	
+	projectClass := (PolProject << projectName2 asSymbol)
+ 			           slots: {  };
+		              package: projectName2, '-Config-Polaris';
+		              install.
+		
+	projectClass class compile: 
+							'projectName', String cr, '    ^ ''', projectNameString, ''''
+				 	 classified: 'info'.
+	
+	
+	projectClass class compile: 'acronym', String cr, '    ^ ''', acronymString, ''''
+							 classified: 'info'.
+									
+	
+
+		
+
+
 ]
 
 { #category : #accessing }
