@@ -78,19 +78,6 @@ PolProject class >> createBaselineClassUsing: baselineName forProject: projectNa
 ]
 
 { #category : #'project creation' }
-PolProject class >> createBasicSeasideApplicationForProject: aProjectName [ 
-
-	| sourceOfClass sourceOfClassAltered |
-
-	sourceOfClass := String streamContents: [ :s | TemplateSeasideWebPage fileOutOn: s ].
-
-	sourceOfClassAltered := sourceOfClass copyReplacingAll:  #('TemplateSeasideWebPage' 	'Polaris-Core-NewCode-Template-Seaside' '''<projectTitle>''') 
-												    respectivelyBy: { aProjectName,'WebPage'. aProjectName, '-Adapter-Seaside'. aProjectName. }.
-
-	CodeImporter evaluateFileStream: sourceOfClassAltered readStream.
-]
-
-{ #category : #'project creation' }
 PolProject class >> createEntity: anEntityName forProject: aProjectName [
 
 	(Object << anEntityName asSymbol)

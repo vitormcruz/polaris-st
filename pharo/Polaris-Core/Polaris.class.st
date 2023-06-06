@@ -81,7 +81,7 @@ Polaris >> newProjectNamed: projectNameString withAcronym: acronymString [
 	projectClass createMainClassForProject: projectName2.
 	PolBasicHelloWorldDecorator decorate: projectClass.
 	projectClass	createFeature: 'HelloWorldFeature' forProject: projectName2.
-	projectClass createBasicSeasideApplicationForProject: projectName2.
+	PolSeasideDecorator decorate: projectClass.
 									
 	
 
