@@ -15,20 +15,6 @@ TPolNewProjectUtils >> assertClass:  aClass isAtPackage: aPackageName [
 ]
 
 { #category : #'test util' }
-TPolNewProjectUtils >> createProjectForTestNamed: projectNameString [
-
-	self expectedPackageCreated: 'BaselineOf' , projectNameString.
-	self expectedPackageCreated: projectNameString , '-Core'.
-	self expectedPackageCreated: projectNameString , '-Adapter-Seaside'.
-	self expectedPackageCreated: projectNameString , '-Config'.
-	self expectedPackageCreated: projectNameString , '-Tests'.
-	self expectedPackageCreated: projectNameString , '-AcceptanceCriteria'.
-	
-	
-	Polaris newProjectNamed: projectNameString.
-]
-
-{ #category : #'test util' }
 TPolNewProjectUtils >> expectedPackageCreated: aPackageName [
 
 	packagesCreatedToClean add: aPackageName

@@ -25,7 +25,7 @@ PolPolarisNewProjectTest >> test_new_project_app_class_should_be_created [
 { #category : #tests }
 PolPolarisNewProjectTest >> test_new_project_baseline_method_should_be_created [
 
-	self createProjectForTestNamed: 'PolarisTestProject'.
+	Polaris newProjectNamed: 'PolarisTestProject'.
 	self assert: ('BaselineOfPolarisTestProject' asClass selectors includes: #baseline:).
 	self assert: ('BaselineOfPolarisTestProject' asClass compiledMethodAt: #baseline:) protocol
         equals: 'baseline'
@@ -36,7 +36,7 @@ PolPolarisNewProjectTest >> test_new_project_baseline_method_should_have_default
 
 	| baselineSpecBuilt |
 	
-	self createProjectForTestNamed: 'PolarisTestProject'.
+	Polaris newProjectNamed: 'PolarisTestProject'.
 	baselineSpecBuilt := (MetacelloBaselineConstructor on: 'BaselineOfPolarisTestProject' asClass new) root.
 	
 	baselineSpecBuilt	packageNamed: 'Buoy' ifAbsent: [ self fail: 'Buoy should be found' ];
@@ -62,7 +62,7 @@ PolPolarisNewProjectTest >> test_new_project_baseline_method_should_have_default
 PolPolarisNewProjectTest >> test_new_project_baseline_should_be_created [
 
 
-	self createProjectForTestNamed: 'PolarisTestProject'.
+	Polaris newProjectNamed: 'PolarisTestProject'.
 	
 	self assert: (RPackage organizer includesPackageNamed: 'BaselineOfPolarisTestProject') 
 		  description: 'Should create a package named: ', 'BaselineOfPolarisTestProject'.
@@ -78,7 +78,7 @@ PolPolarisNewProjectTest >> test_new_project_baseline_should_be_created [
 { #category : #tests }
 PolPolarisNewProjectTest >> test_new_project_default_packages_should_be_created [
 
-	self createProjectForTestNamed: 'PolarisTestProject'.
+	Polaris newProjectNamed: 'PolarisTestProject'.
 	
 	self assert: (RPackage organizer includesPackageNamed: 'PolarisTestProject-Core')
 		  description: 'Should create a package named: ', 'PolarisTestProject-Core'.
@@ -100,7 +100,7 @@ PolPolarisNewProjectTest >> test_new_project_default_packages_should_be_created 
 PolPolarisNewProjectTest >> test_new_project_seaside_web_app_class_should_be_created [
 
 
-	self createProjectForTestNamed: 'PolarisTestProject'.
+	Polaris newProjectNamed: 'PolarisTestProject'.
 	
 	self shouldnt: [ 'PolarisTestProjectWebPage' asClass ] raise: NotFound.
 	

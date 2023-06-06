@@ -14,7 +14,7 @@ PolPolarisNewProjectITTest >> test_new_project_app_class_should_have_activate_me
 
 	| createdClass |
 	
-	self createProjectForTestNamed: 'PolarisTestProject'.
+	Polaris newProjectNamed: 'PolarisTestProject'.
 	createdClass := 'PolarisTestProjectMain' asClass.
 	
 	self assert: (createdClass selectors includes: #activate).
