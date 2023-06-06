@@ -3,9 +3,6 @@ Class {
 	#superclass : #TestCase,
 	#traits : 'TPolNewProjectUtils',
 	#classTraits : 'TPolNewProjectUtils classTrait',
-	#instVars : [
-		'packagesCreatedToClean'
-	],
 	#category : #'Polaris-Tests'
 }
 
@@ -13,7 +10,7 @@ Class {
 PolPolarisNewProjectTest >> test_new_project_app_class_should_be_created [
 
 
-	self createProjectForTestNamed: 'PolarisTestProject'.
+	Polaris newProjectNamed: 'PolarisTestProject'.
 	
 	self shouldnt: [ 'PolarisTestProjectMain' asClass ] raise: NotFound.
 	

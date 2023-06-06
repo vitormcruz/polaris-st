@@ -6,7 +6,7 @@ Trait {
 	#instVars : [
 		'project'
 	],
-	#category : #'Polaris-Core-Decorator'
+	#category : #'Polaris-Core-Project-Decorator'
 }
 
 { #category : #configuration }

@@ -1,7 +1,8 @@
 Trait {
 	#name : #TPolNewProjectUtils,
 	#instVars : [
-		'packagesCreatedToClean'
+		'packagesCreatedToClean',
+		'subscription'
 	],
 	#category : #'Polaris-Tests'
 }
@@ -35,17 +36,21 @@ TPolNewProjectUtils >> expectedPackageCreated: aPackageName [
 
 ]
 
-{ #category : #initialization }
-TPolNewProjectUtils >> initialize [
-	
-	super initialize.
+{ #category : #running }
+TPolNewProjectUtils >> setUp [
+	super setUp.
 	packagesCreatedToClean := OrderedCollection new.
+	subscription := SystemAnnouncer uniqueInstance when: ClassTagAdded do: [ :ann | packagesCreatedToClean add: (ann package name) ].
 ]
 
 { #category : #running }
 TPolNewProjectUtils >> tearDown [ 
 
-	super tearDown.
-	packagesCreatedToClean do: [ :packageName | RPackage organizer packageNamed: packageName ifPresent: #removeFromSystem ].
-	packagesCreatedToClean removeAll.
+	[
+		super tearDown.
+	   packagesCreatedToClean do: [ :packageName | RPackage organizer packageNamed: packageName ifPresent: #removeFromSystem ].
+	] ensure: [ 
+		SystemAnnouncer uniqueInstance removeSubscription: subscription. 
+	]
+
 ]

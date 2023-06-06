@@ -3,5 +3,5 @@ Class {
 	#superclass : #Object,
 	#traits : 'TPolProjectDecorator',
 	#classTraits : 'TPolProjectDecorator classTrait',
-	#category : #'Polaris-Core-Decorator'
+	#category : #'Polaris-Core-Project-Decorator'
 }

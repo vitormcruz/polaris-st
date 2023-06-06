@@ -1,18 +1,18 @@
 Class {
-	#name : #TemplateSeasideWebPage,
+	#name : #VitVitorWebPage,
 	#superclass : #MDLApplication,
 	#category : #'Polaris-Core-Template-Seaside'
 }
 
 { #category : #initialization }
-TemplateSeasideWebPage class >> register_me_as_root_on_server [
+VitVitorWebPage class >> register_me_as_root_on_server [
 
 	WAAdmin unregister: 'welcome'.
 	self registerToDevelopment: '<projectName>'.
 ]
 
 { #category : #rendering }
-TemplateSeasideWebPage >> aboutInfoFor: html [
+VitVitorWebPage >> aboutInfoFor: html [
 
 	html mdlNavigationLink id: 'aboutLink'; 
 								  url: '#'; 
@@ -27,14 +27,14 @@ TemplateSeasideWebPage >> aboutInfoFor: html [
 ]
 
 { #category : #initialization }
-TemplateSeasideWebPage >> initialize [
+VitVitorWebPage >> initialize [
 
 	super initialize.
 	self primaryColor: MDLColor blue secondaryColor: MDLColor green.
 ]
 
 { #category : #rendering }
-TemplateSeasideWebPage >> renderContentOn: html [
+VitVitorWebPage >> renderContentOn: html [
 
 	html mdlLayout fixedHeader; with: [ 
 		
@@ -52,7 +52,7 @@ TemplateSeasideWebPage >> renderContentOn: html [
 ]
 
 { #category : #accessing }
-TemplateSeasideWebPage >> style [
+VitVitorWebPage >> style [
 	^ '
 
 .mdl-pagination__current{
@@ -67,8 +67,8 @@ TemplateSeasideWebPage >> style [
 ]
 
 { #category : #updating }
-TemplateSeasideWebPage >> updateRoot: anHtmlRoot [
+VitVitorWebPage >> updateRoot: anHtmlRoot [
 
     super updateRoot: anHtmlRoot.
-    anHtmlRoot title: '<projectTitle>'.
+    anHtmlRoot title: VitVitor.
 ]

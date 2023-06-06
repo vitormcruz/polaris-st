@@ -1,18 +1,18 @@
 Class {
-	#name : #TemplateSeasideWebPage,
+	#name : #PolarisTestProjectWebPage,
 	#superclass : #MDLApplication,
 	#category : #'Polaris-Core-Template-Seaside'
 }
 
 { #category : #initialization }
-TemplateSeasideWebPage class >> register_me_as_root_on_server [
+PolarisTestProjectWebPage class >> register_me_as_root_on_server [
 
 	WAAdmin unregister: 'welcome'.
 	self registerToDevelopment: '<projectName>'.
 ]
 
 { #category : #rendering }
-TemplateSeasideWebPage >> aboutInfoFor: html [
+PolarisTestProjectWebPage >> aboutInfoFor: html [
 
 	html mdlNavigationLink id: 'aboutLink'; 
 								  url: '#'; 
@@ -27,14 +27,14 @@ TemplateSeasideWebPage >> aboutInfoFor: html [
 ]
 
 { #category : #initialization }
-TemplateSeasideWebPage >> initialize [
+PolarisTestProjectWebPage >> initialize [
 
 	super initialize.
 	self primaryColor: MDLColor blue secondaryColor: MDLColor green.
 ]
 
 { #category : #rendering }
-TemplateSeasideWebPage >> renderContentOn: html [
+PolarisTestProjectWebPage >> renderContentOn: html [
 
 	html mdlLayout fixedHeader; with: [ 
 		
@@ -52,7 +52,7 @@ TemplateSeasideWebPage >> renderContentOn: html [
 ]
 
 { #category : #accessing }
-TemplateSeasideWebPage >> style [
+PolarisTestProjectWebPage >> style [
 	^ '
 
 .mdl-pagination__current{
@@ -67,8 +67,8 @@ TemplateSeasideWebPage >> style [
 ]
 
 { #category : #updating }
-TemplateSeasideWebPage >> updateRoot: anHtmlRoot [
+PolarisTestProjectWebPage >> updateRoot: anHtmlRoot [
 
     super updateRoot: anHtmlRoot.
-    anHtmlRoot title: '<projectTitle>'.
+    anHtmlRoot title: PolarisTestProject.
 ]
