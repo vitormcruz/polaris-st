@@ -15,22 +15,6 @@ PolProject class >> acronym [
 	self subclassResponsibility.
 ]
 
-{ #category : #'project creation' }
-PolProject class >> activateMethodSourceForProject: projectName [
-
-
-	^ 'activate
-	| adaptor |
-	
-	adaptor := ZnZincServerAdaptor new. "Self registered..."
-	
-	adaptor port: (Smalltalk os environment at: #PORT ifAbsent: 8080) asInteger.
-	WAAdmin defaultServerManager startAll.
-	WAAdmin defaultDispatcher defaultName: ''', projectName , '''.
-
-	Smalltalk snapshot: false andQuit: false'
-]
-
 { #category : #info }
 PolProject class >> buildTool [
 
@@ -63,21 +47,6 @@ PolProject class >> createFeature: aFeatureTitle forProject: aProjectName [
 			install.
 ]
 
-{ #category : #'project creation' }
-PolProject class >> createMainClassForProject: aProjectName [
-
-	| appClass appClassPackage |
-	appClassPackage := aProjectName , '-Config'.
-
-	appClass := (CommandLineHandler << (aProjectName , 'Main') asSymbol)
-		            slots: {  };
-		            package: appClassPackage;
-		            install.
-
-
-	appClass 	compile: (self activateMethodSourceForProject: aProjectName)	classified: 'activate'
-]
-
 { #category : #initialization }
 PolProject class >> initialize [
 
@@ -89,6 +58,12 @@ PolProject class >> initialize [
 PolProject class >> projectName [
 
 	self subclassResponsibility.
+]
+
+{ #category : #'as yet unclassified' }
+PolProject class >> projectNamePrefixedAcronym [
+
+	^ self acronym, self projectName.
 ]
 
 { #category : #initialization }

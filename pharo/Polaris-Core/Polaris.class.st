@@ -34,7 +34,7 @@ Polaris class >> newProjectNamed: projectNameString withAcronym: acronymString [
 					       classified: 'info'.
 							
 	PolBaselineDecorator decorate: projectClass.
-	projectClass createMainClassForProject: projectName2.
+	PolCommandLineMainClassDecorator decorate: projectClass.
 	PolBasicHelloWorldDecorator decorate: projectClass.
 	projectClass	createFeature: 'HelloWorldFeature' forProject: projectName2.
 	PolSeasideDecorator decorate: projectClass.
