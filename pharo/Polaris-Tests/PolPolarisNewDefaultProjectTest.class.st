@@ -1,5 +1,5 @@
 Class {
-	#name : #PolPolarisNewProjectTest,
+	#name : #PolPolarisNewDefaultProjectTest,
 	#superclass : #TestCase,
 	#traits : 'TPolNewProjectUtils',
 	#classTraits : 'TPolNewProjectUtils classTrait',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #tests }
-PolPolarisNewProjectTest >> test_new_project_app_class_should_be_created [
+PolPolarisNewDefaultProjectTest >> test_new_project_app_class_should_be_created [
 
 
 	Polaris newProjectNamed: 'PolarisTestProject'.
@@ -23,7 +23,7 @@ PolPolarisNewProjectTest >> test_new_project_app_class_should_be_created [
 ]
 
 { #category : #tests }
-PolPolarisNewProjectTest >> test_new_project_baseline_method_should_be_created [
+PolPolarisNewDefaultProjectTest >> test_new_project_baseline_method_should_be_created [
 
 	Polaris newProjectNamed: 'PolarisTestProject'.
 	self assert: ('BaselineOfPolarisTestProject' asClass selectors includes: #baseline:).
@@ -32,34 +32,36 @@ PolPolarisNewProjectTest >> test_new_project_baseline_method_should_be_created [
 ]
 
 { #category : #tests }
-PolPolarisNewProjectTest >> test_new_project_baseline_method_should_have_default_configuration [
+PolPolarisNewDefaultProjectTest >> test_new_project_baseline_method_should_have_default_configuration [
 
 	| baselineSpecBuilt |
 	
 	Polaris newProjectNamed: 'PolarisTestProject'.
 	baselineSpecBuilt := (MetacelloBaselineConstructor on: 'BaselineOfPolarisTestProject' asClass new) root.
 	
-	baselineSpecBuilt	packageNamed: 'Buoy' ifAbsent: [ self fail: 'Buoy should be found' ];
-		packageNamed: 'Buoy-Tests'	ifAbsent: [ self fail: 'Buoy-Tests should be found' ];
-		packageNamed: 'Tome'	ifAbsent: [ self fail: 'Tome should be found' ];
-		packageNamed: 'Grease' ifAbsent: [ self fail: 'Grease should be found' ];
-		packageNamed: 'MaterialDesignLite' ifAbsent: [ self fail: 'MaterialDesignLite should be found' ];
-		packageNamed: 'ValidationNotification' ifAbsent: [ self fail: 'ValidationNotification should be found' ];
-		packageNamed: 'PolarisTestProject-Core' ifAbsent: [ self fail: 'PolarisTestProject-Core should be found' ];
-		packageNamed: 'PolarisTestProject-Adapter' ifAbsent: [ self fail: 'PolarisTestProject-Adapter should be found' ];
-		packageNamed: 'PolarisTestProject-Config' ifAbsent: [ self fail: 'PolarisTestProject-Config should be found' ];
-		packageNamed: 'PolarisTestProject-Tests' ifAbsent: [ self fail: 'PolarisTestProject-Tests should be found' ];
-		packageNamed: 'PolarisTestProject-AcceptanceCriteria' ifAbsent: [ self fail: 'PolarisTestProject-AcceptanceCriteria should be found' ].
+	
+	self assertCollection: (baselineSpecBuilt packages list collect: #name)
+		  hasSameElements: #('Buoy' 'Buoy-Tests' 'Tome' 'Grease' 'Seaside3' 'Seaside-Core' 'Seaside-Dev' 'MaterialDesignLite' 
+								   'ValidationNotification' 'PolarisTestProject-Core' 'PolarisTestProject-Adapter' 'PolarisTestProject-Config' 
+								   'PolarisTestProject-Tests' 'PolarisTestProject-AcceptanceCriteria' 'default' 'core' 'test' 'dev').
+
 		
-	self assert: (baselineSpecBuilt packageNamed: 'default') includes asSet equals: #('dev') asSet.
-	self assert: (baselineSpecBuilt packageNamed: 'core') includes asSet equals: #('PolarisTestProject-Config' 'ValidationNotification') asSet.
-	self assert: (baselineSpecBuilt packageNamed: 'test') includes asSet equals: #('core' 'PolarisTestProject-Tests' 'PolarisTestProject-AcceptanceCriteria') asSet.
-	self assert: (baselineSpecBuilt packageNamed: 'dev') includes asSet equals: #('test' 'Seaside-Dev') asSet.		
+	self assertCollection:  (baselineSpecBuilt packageNamed: 'default') includes 
+		  hasSameElements: #('dev').
+		
+	self assertCollection: (baselineSpecBuilt packageNamed: 'core') includes 
+		  hasSameElements: #('PolarisTestProject-Core' 'PolarisTestProject-Adapter' 'PolarisTestProject-Config' 'ValidationNotification').
+		
+	self assertCollection: (baselineSpecBuilt packageNamed: 'test') includes 
+		  hasSameElements: #('core' 'PolarisTestProject-Tests' 'PolarisTestProject-AcceptanceCriteria').
+		
+	self assertCollection: (baselineSpecBuilt packageNamed: 'dev') includes 
+		  hasSameElements: #('test' 'Seaside-Dev').
 
 ]
 
 { #category : #tests }
-PolPolarisNewProjectTest >> test_new_project_baseline_should_be_created [
+PolPolarisNewDefaultProjectTest >> test_new_project_baseline_should_be_created [
 
 
 	Polaris newProjectNamed: 'PolarisTestProject'.
@@ -76,7 +78,7 @@ PolPolarisNewProjectTest >> test_new_project_baseline_should_be_created [
 ]
 
 { #category : #tests }
-PolPolarisNewProjectTest >> test_new_project_default_packages_should_be_created [
+PolPolarisNewDefaultProjectTest >> test_new_project_default_packages_should_be_created [
 
 	Polaris newProjectNamed: 'PolarisTestProject'.
 	
@@ -97,7 +99,7 @@ PolPolarisNewProjectTest >> test_new_project_default_packages_should_be_created 
 ]
 
 { #category : #tests }
-PolPolarisNewProjectTest >> test_new_project_seaside_web_app_class_should_be_created [
+PolPolarisNewDefaultProjectTest >> test_new_project_seaside_web_app_class_should_be_created [
 
 
 	Polaris newProjectNamed: 'PolarisTestProject'.

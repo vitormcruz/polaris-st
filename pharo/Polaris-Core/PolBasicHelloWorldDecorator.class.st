@@ -3,9 +3,6 @@ Class {
 	#superclass : #Object,
 	#traits : 'TPolProjectDecorator',
 	#classTraits : 'TPolProjectDecorator classTrait',
-	#instVars : [
-		'project'
-	],
 	#category : #'Polaris-Core-Project-Decorator'
 }
 

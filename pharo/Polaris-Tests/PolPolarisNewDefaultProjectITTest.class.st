@@ -1,5 +1,5 @@
 Class {
-	#name : #PolPolarisNewProjectITTest,
+	#name : #PolPolarisNewDefaultProjectITTest,
 	#superclass : #TestCase,
 	#traits : 'TPolNewProjectUtils',
 	#classTraits : 'TPolNewProjectUtils classTrait',
@@ -10,7 +10,7 @@ Class {
 }
 
 { #category : #tests }
-PolPolarisNewProjectITTest >> test_new_project_app_class_should_have_activate_method [
+PolPolarisNewDefaultProjectITTest >> test_new_project_app_class_should_have_activate_method [
 
 	| createdClass |
 	
@@ -33,7 +33,7 @@ PolPolarisNewProjectITTest >> test_new_project_app_class_should_have_activate_me
 ]
 
 { #category : #tests }
-PolPolarisNewProjectITTest >> test_new_project_baseline_should_load_correctly [
+PolPolarisNewDefaultProjectITTest >> test_new_project_baseline_should_load_correctly [
 
 	self skip.
 
