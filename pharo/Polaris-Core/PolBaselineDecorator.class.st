@@ -36,10 +36,12 @@ PolBaselineDecorator >> baselineSourceFor: projectNameString [
 		package: ''{1}-Tests'' with: [ spec requires: #(''{1}-Core'' ''Buoy-Tests'') ];
 		package: ''{1}-AcceptanceCriteria'' with: [ spec requires: #(''{1}-Core'' ''Buoy-Tests'' ''Tome'' ''{1}-Tests'') ];
 		
+		package: ''{1}-Tools'';
+		
 		group: ''default'' with: #(''dev'');
 		group: ''core'' with: #(''{1}-Core'' ''{1}-Adapter'' ''{1}-Config'' ''ValidationNotification'');
 		group: ''test'' with: #(core ''{1}-Tests'' ''{1}-AcceptanceCriteria'');
-		group: ''dev'' with: #(test ''Seaside-Dev'')
+		group: ''dev'' with: #(test ''Seaside-Dev'' ''{1}-Tools'')
 	].' format: { projectNameString }
 ]
 

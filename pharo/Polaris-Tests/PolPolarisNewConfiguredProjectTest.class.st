@@ -3,7 +3,7 @@ Class {
 	#superclass : #TestCase,
 	#traits : 'TPolNewProjectUtils',
 	#classTraits : 'TPolNewProjectUtils classTrait',
-	#category : #'Polaris-Tests'
+	#category : #'Polaris-Tests-Project'
 }
 
 { #category : #tests }

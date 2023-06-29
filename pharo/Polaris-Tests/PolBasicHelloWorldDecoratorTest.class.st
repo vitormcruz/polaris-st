@@ -3,7 +3,7 @@ Class {
 	#superclass : #TestCase,
 	#traits : 'TPolNewProjectUtils',
 	#classTraits : 'TPolNewProjectUtils classTrait',
-	#category : #'Polaris-Tests-Decorator'
+	#category : #'Polaris-Tests-Project-Decorator'
 }
 
 { #category : #tests }
@@ -27,6 +27,8 @@ PolBasicHelloWorldDecoratorTest >> test_decorate_project_creates_correct_srtuctu
 
 { #category : #tests }
 PolBasicHelloWorldDecoratorTest >> test_decorate_project_creates_correct_srtucture_no_acronym [
+
+	<todo: 'Add more tests. Run the test class, run the hello class etc'>
 
 	| projectMock |
 	

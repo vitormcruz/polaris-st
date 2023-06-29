@@ -1,7 +1,7 @@
 Class {
 	#name : #TPolProjectDecoratorTest,
 	#superclass : #TestCase,
-	#category : #'Polaris-Tests-Decorator'
+	#category : #'Polaris-Tests-Project-Decorator'
 }
 
 { #category : #tests }

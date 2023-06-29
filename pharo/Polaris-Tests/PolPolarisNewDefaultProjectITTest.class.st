@@ -6,7 +6,7 @@ Class {
 	#instVars : [
 		'packagesCreatedToClean'
 	],
-	#category : #'Polaris-Tests'
+	#category : #'Polaris-Tests-Project'
 }
 
 { #category : #tests }

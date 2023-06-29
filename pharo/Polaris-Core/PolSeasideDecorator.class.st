@@ -1,22 +1,19 @@
 Class {
 	#name : #PolSeasideDecorator,
 	#superclass : #Object,
-	#traits : 'TPolProjectDecorator',
-	#classTraits : 'TPolProjectDecorator classTrait',
+	#traits : 'TPolProjectDecorator + TPolDecorationByTemplate',
+	#classTraits : 'TPolProjectDecorator classTrait + TPolDecorationByTemplate classTrait',
 	#category : #'Polaris-Core-Project-Decorator'
 }
 
 { #category : #configuration }
 PolSeasideDecorator >> decorate [
 
-	| sourceOfClass sourceOfClassAltered |
+	<todo: 'Add tests?'>
 
-	sourceOfClass := String streamContents: [ :s | TemplateSeasideWebPage fileOutOn: s ].
-
-	sourceOfClassAltered := sourceOfClass copyReplacingAll:  #('TemplateSeasideWebPage' 	'Polaris-Core-Template-Seaside' '''<projectTitle>''') 
-												    respectivelyBy: { project projectName,'WebPage'. project projectName, '-Adapter-Seaside'. project projectName. }.
-
-	CodeImporter evaluateFileStream: sourceOfClassAltered readStream.
+	self copyTemplateClass:  TemplateSeasideWebPage
+		replacingAll:  #('TemplateSeasideWebPage' 	'Polaris-Core-Template-Seaside' '''<projectTitle>''') 
+		by: { project projectName,'WebPage'. project projectName, '-Adapter-Seaside'. project projectName. }
 ]
 
 { #category : #configuration }

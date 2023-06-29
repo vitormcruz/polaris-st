@@ -3,7 +3,7 @@ Class {
 	#superclass : #TestCase,
 	#traits : 'TPolNewProjectUtils',
 	#classTraits : 'TPolNewProjectUtils classTrait',
-	#category : #'Polaris-Tests'
+	#category : #'Polaris-Tests-Project'
 }
 
 { #category : #tests }
@@ -43,7 +43,8 @@ PolPolarisNewDefaultProjectTest >> test_new_project_baseline_method_should_have_
 	self assertCollection: (baselineSpecBuilt packages list collect: #name)
 		  hasSameElements: #('Buoy' 'Buoy-Tests' 'Tome' 'Grease' 'Seaside3' 'Seaside-Core' 'Seaside-Dev' 'MaterialDesignLite' 
 								   'ValidationNotification' 'PolarisTestProject-Core' 'PolarisTestProject-Adapter' 'PolarisTestProject-Config' 
-								   'PolarisTestProject-Tests' 'PolarisTestProject-AcceptanceCriteria' 'default' 'core' 'test' 'dev').
+								   'PolarisTestProject-Tests' 'PolarisTestProject-AcceptanceCriteria' 'PolarisTestProject-Tools' 
+								   'default' 'core' 'test' 'dev').
 
 		
 	self assertCollection:  (baselineSpecBuilt packageNamed: 'default') includes 
@@ -56,7 +57,7 @@ PolPolarisNewDefaultProjectTest >> test_new_project_baseline_method_should_have_
 		  hasSameElements: #('core' 'PolarisTestProject-Tests' 'PolarisTestProject-AcceptanceCriteria').
 		
 	self assertCollection: (baselineSpecBuilt packageNamed: 'dev') includes 
-		  hasSameElements: #('test' 'Seaside-Dev').
+		  hasSameElements: #('test' 'Seaside-Dev' 'PolarisTestProject-Tools').
 
 ]
 
