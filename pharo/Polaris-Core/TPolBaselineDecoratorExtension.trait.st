@@ -4,24 +4,28 @@ Trait {
 }
 
 { #category : #decorating }
-TPolBaselineDecoratorExtension classSide >> baselineMethodTemplate [
-	"Should return a selector refering to the method template  that should be installed into the base line"
+TPolBaselineDecoratorExtension >> baselineMethodTemplate [
+	"Should return a selector refering to the method template  that should be installed into the base line. The method itself must have a PolarisAddedMethod pragma."
 
 	self  shouldBeImplemented.
 ]
 
 { #category : #decorating }
-TPolBaselineDecoratorExtension classSide >> decorateBaselineSource: aBaselineClass [
+TPolBaselineDecoratorExtension >> decorateBaselineSource: aBaselineClass [
 
-	| newMethodSource |
+	| baselineMethod newMethodSource |
 	
-	newMethodSource  := 'polDepFor_', (self >> self baselineMethodTemplate  ) source.
+	baselineMethod := self class >> self baselineMethodTemplate.
+	(baselineMethod  hasPragmaNamed: 'PolarisAddedMethod') ifFalse: [ self error: 'The baseline method template must be pragmed with <PolarisAddedMethod>' ].
+	
+	newMethodSource  := 'polDepFor_',   baselineMethod sourceCode.
 
-
-	RBAddMethodRefactoring 
+	(RBAddMethodRefactoring 
 		model: RBNamespace new 
 		addMethod: newMethodSource 
-		toClass:Morph 
-		inProtocols:{'generated baseline'}.
+		toClass: aBaselineClass 
+		inProtocols:{'generated baseline'}) execute.
+		
+	(Metacello new  baseline: (aBaselineClass name copyReplaceAll: 'BaselineOf' with: '' ) ; silently) load.
 
 ]

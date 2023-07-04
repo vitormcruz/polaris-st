@@ -1,6 +1,6 @@
 Class {
 	#name : #BaselineOfTPolTestProject,
-	#superclass : #BaselineOf,
+	#superclass : #PolBaselineOf,
 	#category : #BaselineOfTPolTestProject
 }
 
@@ -8,20 +8,17 @@ Class {
 BaselineOfTPolTestProject >> baseline: spec [
 
 	<baseline>
+	
+	super baseline: spec.
         
 	spec for: #'common' do: [
 		spec blessing: #'baseline';     
 		
- 	   baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
-
-		package: 'PolTestProject-Core' with: [ spec requires: #('Buoy') ];
-		package: 'PolTestProject-Adapter';
-		package: 'PolTestProject-Config';
-		package: 'PolTestProject-Tests';
+		baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
 		
 		group: 'default' with: #('dev');
-		group: 'core' with: #('PolTestProject-Core' 'PolTestProject-Adapter' 'PolTestProject-Config' 'ValidationNotification');
-		group: 'test' with: #(core 'PolTestProject-Tests' 'PolTestProject-AcceptanceCriteria');
-		group: 'dev' with: #(test 'Seaside-Dev')
+		group: 'core' with: #(Buoy);
+		group: 'test' with: #(core);
+		group: 'dev' with: #(test)
 	].
 ]

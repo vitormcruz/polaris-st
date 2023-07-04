@@ -31,7 +31,7 @@ BaselineOfPolaris >> baseline: spec [
          package: 'Polaris-Tools-Inspector' with: [ spec requires: #('Polaris-Core') ];
 
          group: 'default' with: #('dev');
-         group: 'core' with: #('Polaris-Core' 'ValidationNotification');
+         group: 'core' with: #('Polaris-Core' 'ValidationNotification' );
          group: 'test' with: #(core 'Polaris-Tests' 'BaselineOfTPolTestProject');
          group: 'dev' with: #(test 'Polaris-Tools-Inspector').
 		
