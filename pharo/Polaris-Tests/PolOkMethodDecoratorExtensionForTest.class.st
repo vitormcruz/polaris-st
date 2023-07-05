@@ -11,8 +11,8 @@ PolOkMethodDecoratorExtensionForTest >> addPragmedDependencyTo: spec [
 
 	<PolarisAddedMethod>
 	
-	 spec baseline: 'BaselineOfTPolTestProject_Dep3' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ].
-	 spec group:  'core' with: #('BaselineOfTPolTestProject_Dep3' ).
+	 spec baseline: 'TPolTestProject_Dep3' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ].
+	 spec group:  'core' with: #('TPolTestProject_Dep3' ).
 
 ]
 

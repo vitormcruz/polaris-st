@@ -14,7 +14,7 @@ BaselineOfTPolTestProject >> baseline: spec [
 	spec for: #'common' do: [
 		spec blessing: #'baseline';     
 		
-		 	   baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:branchForTest/pharo' ];
+		 	   baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
 		           group:  'core' with: #('TPolTestProject_Dep1' ).
 	].
 ]
