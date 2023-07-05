@@ -25,10 +25,10 @@ BaselineOfPolaris >> baseline: spec [
 	   baseline: 'ValidationNotification' with: [ spec repository: 'github://vitormcruz/validation-sensor:master/pharo'; loads: #(core) ];
 
            package: 'Polaris-Core' with: [ spec requires: #('LangExtensions' 'MaterialDesignLite' 'ValidationNotification') ];
-           baseline: 'BaselineOfTPolTestProject' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
-           baseline: 'BaselineOfTPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
-           baseline: 'BaselineOfTPolTestProject_Dep2' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
-           baseline: 'BaselineOfTPolTestProject_Dep3' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
+           baseline: 'TPolTestProject' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
+           baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
+           baseline: 'TPolTestProject_Dep2' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
+           baseline: 'TPolTestProject_Dep3' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
            package: 'Polaris-Tests' with: [ spec requires: #('Polaris-Core' 'BaselineOfTPolTestProject' 'Buoy-Tests' 'Tome' 'Mocketry') ];
            package: 'Polaris-Core' with: [ spec requires: #() ];
            package: 'Polaris-Tools-Inspector' with: [ spec requires: #('Polaris-Core') ];
