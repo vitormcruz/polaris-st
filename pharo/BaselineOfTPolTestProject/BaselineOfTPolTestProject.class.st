@@ -16,7 +16,6 @@ BaselineOfTPolTestProject >> baseline: spec [
 		
 		baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
 		
-		group: 'default' with: #('dev');
 		group: 'core' with: #(Buoy);
 		group: 'test' with: #(core);
 		group: 'dev' with: #(test)
