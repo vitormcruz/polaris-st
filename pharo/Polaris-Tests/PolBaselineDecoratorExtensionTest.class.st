@@ -35,7 +35,7 @@ PolBaselineDecoratorExtensionTest >> test_decorate_baseline_correctly [
 	baselineSpecBuilt := (MetacelloBaselineConstructor on: BaselineOfTPolTestProject new) root.
 
 	self assertCollection: (baselineSpecBuilt packages list collect: #name)
-		  hasSameElements: #('Buoy'  'TPolTestProject_Dep3'  'core').
+		  hasSameElements: #('TPolTestProject_Dep1'   'TPolTestProject_Dep3'  'core').
 		
 
 ]
