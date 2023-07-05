@@ -14,19 +14,8 @@ BaselineOfTPolTestProject >> baseline: spec [
 	spec for: #'common' do: [
 		spec blessing: #'baseline';     
 		
-		baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
+		baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:master/pharo' ];
 		
-		group: 'core' with: #(Buoy);
-		group: 'test' with: #(core);
-		group: 'dev' with: #(test)
+		group: 'core' with: #(TPolTestProject_Dep1).
 	].
-]
-
-{ #category : #'generated baseline' }
-BaselineOfTPolTestProject >> polDepFor_addBuoyDependencyTo: spec [
-
-	<PolarisAddedMethod>
-
-	 spec baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:branchForTest/pharo' ].
-	 spec group:  'core' with: #('TPolTestProject_Dep1' ).
 ]

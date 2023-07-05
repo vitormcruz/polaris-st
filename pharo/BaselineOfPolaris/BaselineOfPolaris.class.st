@@ -26,13 +26,14 @@ BaselineOfPolaris >> baseline: spec [
 
           package: 'Polaris-Core' with: [ spec requires: #('LangExtensions' 'MaterialDesignLite' 'ValidationNotification') ];
          package: 'BaselineOfTPolTestProject';
+         package: 'BaselineOfTPolTestProject_Dep1';
+         package: 'BaselineOfTPolTestProject_Dep2';
          package: 'Polaris-Tests' with: [ spec requires: #('Polaris-Core' 'BaselineOfTPolTestProject' 'Buoy-Tests' 'Tome' 'Mocketry') ];
          package: 'Polaris-Core' with: [ spec requires: #() ];
          package: 'Polaris-Tools-Inspector' with: [ spec requires: #('Polaris-Core') ];
 
-         group: 'default' with: #('dev');
          group: 'core' with: #('Polaris-Core' 'ValidationNotification' );
-         group: 'test' with: #(core 'Polaris-Tests' 'BaselineOfTPolTestProject');
+         group: 'test' with: #(core 'Polaris-Tests' 'BaselineOfTPolTestProject' 'BaselineOfTPolTestProject_Dep1' 'BaselineOfTPolTestProject_Dep2');
          group: 'dev' with: #(test 'Polaris-Tools-Inspector').
 		
 	 ]
