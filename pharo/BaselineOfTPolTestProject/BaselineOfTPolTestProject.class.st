@@ -14,10 +14,7 @@ BaselineOfTPolTestProject >> baseline: spec [
 	spec for: #'common' do: [
 		spec blessing: #'baseline';     
 		
-		baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
-		
-		group: 'core' with: #(Buoy);
-		group: 'test' with: #(core);
-		group: 'dev' with: #(test)
+		 	   baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:branchForTest/pharo' ];
+		           group:  'core' with: #('TPolTestProject_Dep1' ).
 	].
 ]
