@@ -1,7 +1,7 @@
 Class {
 	#name : #PolBaselineDecoratorExtensionTest,
 	#superclass : #TestCase,
-	#category : #'Polaris-Tests-Project-Decorator'
+	#category : #'Polaris-Tests-Project-Decorator-Baseline'
 }
 
 { #category : #running }

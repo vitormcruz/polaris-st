@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#traits : 'TPolBaselineDecoratorExtension',
 	#classTraits : 'TPolBaselineDecoratorExtension classTrait',
-	#category : #'Polaris-Tests-Project-Decorator'
+	#category : #'Polaris-Tests-Project-Decorator-Baseline'
 }
 
 { #category : #decorating }
