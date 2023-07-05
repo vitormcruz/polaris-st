@@ -21,7 +21,7 @@ PolBaselineDecoratorExtensionTest >> tearDown [
 PolBaselineDecoratorExtensionTest >> test_add_conflicting_dependency [
 
 	self should: [ PolConflictDepDecoratorExtensionForTest new decorateBaselineSource: BaselineOfTPolTestProject ] 
-		  raise: MetacelloPackageSpecResolutionError.
+		  raise: MetacelloScriptNotification.
 
 	
 ]

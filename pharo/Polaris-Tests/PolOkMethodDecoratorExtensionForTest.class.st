@@ -11,10 +11,8 @@ PolOkMethodDecoratorExtensionForTest >> addPragmedDependencyTo: spec [
 
 	<PolarisAddedMethod>
 	
-	<todo: 'adicionar versão do tome quando tiver.'>
-	
-	 spec baseline: 'Tome' with: [ spec repository: 'github://vitormcruz/polaris-st:branchForTest/pharo'; loads: #(core) ].
-	 spec group:  'test' with: #('Tome' ).
+	 spec baseline: 'BaselineOfTPolTestProject_Dep3' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ].
+	 spec group:  'core' with: #('BaselineOfTPolTestProject_Dep3' ).
 
 ]
 
