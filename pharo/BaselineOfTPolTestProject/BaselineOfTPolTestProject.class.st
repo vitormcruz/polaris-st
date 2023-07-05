@@ -27,6 +27,6 @@ BaselineOfTPolTestProject >> polDepFor_addBuoyDependencyTo: spec [
 
 	<PolarisAddedMethod>
 
-	 spec baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ].
+	 spec baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:branchForTest/pharo' ].
 	 spec group:  'core' with: #('TPolTestProject_Dep1' ).
 ]
