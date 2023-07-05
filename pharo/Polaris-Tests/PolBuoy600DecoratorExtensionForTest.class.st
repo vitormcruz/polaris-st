@@ -11,8 +11,8 @@ PolBuoy600DecoratorExtensionForTest >> addBuoyDependencyTo: spec [
 
 	<PolarisAddedMethod>
 
-	 spec baseline: 'BaselineOfTPolTestProject_Dep1_2' with: [ spec repository: 'github://vitormcruz/polaris:branchForTest/pharo' ].
-	 spec group:  'core' with: #('BaselineOfTPolTestProject_Dep1_2' ).
+	 spec baseline: 'Buoy2' with: [ spec repository: 'github://ba-st/Buoy:v6.0.0/source' ].
+	 spec group:  'core' with: #('Buoy2' ).
 ]
 
 { #category : #decorating }
