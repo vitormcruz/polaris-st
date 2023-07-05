@@ -17,8 +17,6 @@ PolBaselineDecorator >> baselineSourceFor: projectNameString [
 		
  	   baseline: ''Buoy'' with: [ spec repository: ''github://ba-st/Buoy:v6.1.0/source'' ];
 		project: ''Buoy-Tests'' copyFrom: ''Buoy'' with: [ spec loads: #(''Dependent-SUnit-Extensions'') ];
-	   baseline: ''LangExtensions'' with: [ spec repository: ''gitlab://vitormcruz/sandbox-st:develop''; 
-								 		 loads: #(core) ];
 		
  	   baseline: ''Tome'' with: [ spec repository: ''github://vitormcruz/tome:develop/pharo''; loads: #(core) ];
  	   baseline: ''Grease'' with: [ spec repository: ''github://SeasideSt/Grease:v1.9.0/repository''; loads: #(default) ];
@@ -38,10 +36,12 @@ PolBaselineDecorator >> baselineSourceFor: projectNameString [
 		package: ''{1}-Tests'' with: [ spec requires: #(''{1}-Core'' ''Buoy-Tests'') ];
 		package: ''{1}-AcceptanceCriteria'' with: [ spec requires: #(''{1}-Core'' ''Buoy-Tests'' ''Tome'' ''{1}-Tests'') ];
 		
+		package: ''{1}-Tools'';
+		
 		group: ''default'' with: #(''dev'');
-		group: ''core'' with: #(''{1}-Config'' ''ValidationNotification'');
+		group: ''core'' with: #(''{1}-Core'' ''{1}-Adapter'' ''{1}-Config'' ''ValidationNotification'');
 		group: ''test'' with: #(core ''{1}-Tests'' ''{1}-AcceptanceCriteria'');
-		group: ''dev'' with: #(test ''Seaside-Dev'')
+		group: ''dev'' with: #(test ''Seaside-Dev'' ''{1}-Tools'')
 	].' format: { projectNameString }
 ]
 
@@ -67,5 +67,5 @@ PolBaselineDecorator >> description [
 	
 	"Should return a small descripition of this configuration"
 	
-	^ 'Add to the project a Basic configuration for Baseline configuration'
+	^ 'Add to the project a Basic configuration for Baseline configuration. #minimal'
 ]

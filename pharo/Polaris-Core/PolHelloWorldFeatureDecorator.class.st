@@ -9,6 +9,8 @@ Class {
 { #category : #configuration }
 PolHelloWorldFeatureDecorator >> decorate [
 
+	<todo: 'Add tests?'>
+
 	^ (TomeFeature  << (project projectNamePrefixedAcronym, 'HelloWorldFeature') asSymbol)
 			slots: {  };
 			package: project projectName, '-AcceptanceCriteria';

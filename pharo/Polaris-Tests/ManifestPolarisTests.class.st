@@ -9,5 +9,5 @@ Class {
 
 { #category : #'code-critics' }
 ManifestPolarisTests class >> ruleReAsClassRuleV1FalsePositive [
-	^ #(#(#(#RGMethodDefinition #(#PolPolarisNewProjectITTest #test_new_project_baseline_should_be_created #false)) #'2023-02-15T16:52:38.534-03:00') #(#(#RGPackageDefinition #(#'Polaris-Tests')) #'2023-02-16T15:30:41.416-03:00') )
+	^ #(#(#(#RGMethodDefinition #(#PolPolarisNewDefaultProjectITTest #test_new_project_baseline_should_be_created #false)) #'2023-02-15T16:52:38.534-03:00') #(#(#RGPackageDefinition #(#'Polaris-Tests')) #'2023-02-16T15:30:41.416-03:00') )
 ]

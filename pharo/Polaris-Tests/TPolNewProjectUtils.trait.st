@@ -4,7 +4,7 @@ Trait {
 		'packagesCreatedToClean',
 		'subscription'
 	],
-	#category : #'Polaris-Tests'
+	#category : #'Polaris-Tests-Project'
 }
 
 { #category : #'test util' }

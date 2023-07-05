@@ -25,6 +25,8 @@ PolCommandLineMainClassDecorator >> activateMethodSourceForProject: projectName 
 { #category : #configuration }
 PolCommandLineMainClassDecorator >> decorate [
 
+	<todo: 'Add tests?'>
+
 	| appClass appClassPackage |
 	appClassPackage := project projectName, '-Config'.
 
