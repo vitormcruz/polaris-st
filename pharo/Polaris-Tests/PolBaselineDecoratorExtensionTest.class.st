@@ -27,6 +27,20 @@ PolBaselineDecoratorExtensionTest >> test_add_conflicting_dependency [
 ]
 
 { #category : #tests }
+PolBaselineDecoratorExtensionTest >> test_decorate_baseline_correctly [
+
+	| baselineSpecBuilt |
+	
+	PolOkMethodDecoratorExtensionForTest  new decorateBaselineSource: BaselineOfTPolTestProject.
+	baselineSpecBuilt := (MetacelloBaselineConstructor on: BaselineOfTPolTestProject new) root.
+
+	self assertCollection: (baselineSpecBuilt packages list collect: #name)
+		  hasSameElements: #('Buoy'  'Tome'  'default' 'core' 'test' 'dev').
+		
+
+]
+
+{ #category : #tests }
 PolBaselineDecoratorExtensionTest >> test_decorate_baseline_with_method_without_pragma [
 
 	self should: [ PolNoPragmedMethodDecoratorExtensionForTest  new decorateBaselineSource: BaselineOfTPolTestProject ] 
