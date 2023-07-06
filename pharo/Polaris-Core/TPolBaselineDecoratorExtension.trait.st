@@ -37,5 +37,5 @@ TPolBaselineDecoratorExtension >> preapareMethodSourceForBaseline [
 { #category : #decorating }
 TPolBaselineDecoratorExtension >> verifyBaseline: aBaselineClass [
 
-   (Metacello new baseline: (aBaselineClass name copyReplaceAll: 'BaselineOf' with: ''); silently) load
+   (Metacello new baseline: (aBaselineClass name copyReplaceAll: 'BaselineOf' with: ''); silently) record
 ]

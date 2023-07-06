@@ -11,12 +11,12 @@ PolPolarisNewConfiguredProjectTest >> test_create_project_minimal [
 
 	| projectBuilder baselineSpecBuilt |
 	
-	self skip: 'Need to finish the baseline extension implementation'.
+	self skip: 'Need to finish the baseline extension implementation for all decorators'.
 	
 	projectBuilder := (Polaris configureNewProject: 'NewConfiguredTestProject') becomeMinimal.
 	projectBuilder build.
 	
-	baselineSpecBuilt := (MetacelloBaselineConstructor on: 'BaselineOfPolarisTestProject' asClass new) root.
+	baselineSpecBuilt := (MetacelloBaselineConstructor on: 'BaselineOfNewConfiguredTestProject' asClass new) root.
 	
 	self assertCollection: (baselineSpecBuilt packages list collect: #name)
 		  hasSameElements: #('NewConfiguredTestProject-Adapter' 'NewConfiguredTestProject-Config' 

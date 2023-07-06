@@ -16,7 +16,7 @@ PolPolarisNewDefaultProjectTest >> test_new_project_app_class_should_be_created 
 	
 	self assert: 'PolarisTestProjectMain' asClass superclass equals:  CommandLineHandler.
 	
-	self assert: ((RPackage organizer packageNamed: 'PolarisTestProject-Config') definedClasses includes: #PolarisTestProjectMain asClass) 
+	self assert: ('PolarisTestProject-Config' asPackage definedClasses includes: #PolarisTestProjectMain asClass) 
 		  description: 'App class should be created inside the correct package'.
 	
 	
@@ -72,7 +72,7 @@ PolPolarisNewDefaultProjectTest >> test_new_project_baseline_should_be_created [
 		
 	self shouldnt: [ 'BaselineOfPolarisTestProject' asClass ] raise: NotFound.
 	
-	self assert: ((RPackage organizer packageNamed: 'BaselineOfPolarisTestProject') definedClasses includes: #BaselineOfPolarisTestProject asClass) 
+	self assert: ('BaselineOfPolarisTestProject' asPackage definedClasses includes: #BaselineOfPolarisTestProject asClass) 
 		  description: 'Baseline class should be created inside the correct package'.	
 	
 	
@@ -109,7 +109,7 @@ PolPolarisNewDefaultProjectTest >> test_new_project_seaside_web_app_class_should
 	
 	self assert: 'PolarisTestProjectWebPage' asClass superclass equals: MDLApplication.
 	
-	self assert: ((RPackage organizer packageNamed: 'PolarisTestProject-Adapter-Seaside') definedClasses includes: #PolarisTestProjectWebPage asClass) 
+	self assert: ('PolarisTestProject-Adapter-Seaside' asPackage definedClasses includes: #PolarisTestProjectWebPage asClass) 
 		  description: 'WebApp class should be created inside the correct package'.
 	
 	
