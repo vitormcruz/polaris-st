@@ -12,7 +12,8 @@ BaselineOfTPolTestProject_Dep3 >> baseline: spec [
 	super baseline: spec.
         
 	spec for: #'common' do: [
-		spec blessing: #'baseline'.
+		spec blessing: #'baseline';
+ 			   group: 'baselineOnly' with: #().
 		
 	].
 ]

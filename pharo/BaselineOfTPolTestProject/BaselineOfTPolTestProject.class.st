@@ -15,6 +15,9 @@ BaselineOfTPolTestProject >> baseline: spec [
 		spec blessing: #'baseline';     
 		
 		 	   baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
-		           group:  'core' with: #('TPolTestProject_Dep1' ).
+		      group: 'core' with: #('TPolTestProject_Dep1' );
+ 			   group: 'baselineOnly' with: #().
+		
+		
 	].
 ]
