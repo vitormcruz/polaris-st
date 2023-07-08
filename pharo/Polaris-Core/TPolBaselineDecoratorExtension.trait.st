@@ -1,6 +1,6 @@
 Trait {
 	#name : #TPolBaselineDecoratorExtension,
-	#category : #'Polaris-Core-Project-Decorator'
+	#category : #'Polaris-Core-Project-Decorator-Baseline'
 }
 
 { #category : #decorating }
@@ -13,19 +13,29 @@ TPolBaselineDecoratorExtension >> baselineMethodTemplate [
 { #category : #decorating }
 TPolBaselineDecoratorExtension >> decorateBaselineSource: aBaselineClass [
 
-	| baselineMethod newMethodSource |
-	
-	baselineMethod := self class >> self baselineMethodTemplate.
-	(baselineMethod  hasPragmaNamed: 'PolarisAddedMethod') ifFalse: [ self error: 'The baseline method template must be pragmed with <PolarisAddedMethod>' ].
-	
-	newMethodSource  := 'polDepFor_',   baselineMethod sourceCode.
+   (RBAddMethodRefactoring
+       model: RBNamespace new
+       addMethod: self preapareMethodSourceForBaseline
+       toClass: aBaselineClass
+       inProtocols: { 'generated baseline' }) execute.
 
-	(RBAddMethodRefactoring 
-		model: RBNamespace new 
-		addMethod: newMethodSource 
-		toClass: aBaselineClass 
-		inProtocols:{'generated baseline'}) execute.
-		
-	(Metacello new  baseline: (aBaselineClass name copyReplaceAll: 'BaselineOf' with: '' ) ; silently) load.
+   self verifyBaseline: aBaselineClass
+]
 
+{ #category : #decorating }
+TPolBaselineDecoratorExtension >> preapareMethodSourceForBaseline [
+
+   | baselineMethod |
+
+   baselineMethod := self class >> self baselineMethodTemplate.
+
+   (baselineMethod hasPragmaNamed: 'PolarisAddedMethod') ifFalse: [ self error: 'The baseline method template must be pragmed with <PolarisAddedMethod>' ].
+
+   ^ 'polDepFor_' , baselineMethod sourceCode
+]
+
+{ #category : #decorating }
+TPolBaselineDecoratorExtension >> verifyBaseline: aBaselineClass [
+
+   (Metacello new baseline: (aBaselineClass name copyReplaceAll: 'BaselineOf' with: ''); silently) load
 ]

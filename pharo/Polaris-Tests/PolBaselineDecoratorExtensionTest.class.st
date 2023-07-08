@@ -1,7 +1,7 @@
 Class {
 	#name : #PolBaselineDecoratorExtensionTest,
 	#superclass : #TestCase,
-	#category : #'Polaris-Tests-Project-Decorator'
+	#category : #'Polaris-Tests-Project-Decorator-Baseline'
 }
 
 { #category : #running }
@@ -21,7 +21,7 @@ PolBaselineDecoratorExtensionTest >> tearDown [
 PolBaselineDecoratorExtensionTest >> test_add_conflicting_dependency [
 
 	self should: [ PolConflictDepDecoratorExtensionForTest new decorateBaselineSource: BaselineOfTPolTestProject ] 
-		  raise: MetacelloPackageSpecResolutionError.
+		  raise: MetacelloScriptNotification.
 
 	
 ]
@@ -35,7 +35,7 @@ PolBaselineDecoratorExtensionTest >> test_decorate_baseline_correctly [
 	baselineSpecBuilt := (MetacelloBaselineConstructor on: BaselineOfTPolTestProject new) root.
 
 	self assertCollection: (baselineSpecBuilt packages list collect: #name)
-		  hasSameElements: #('Buoy'  'Tome'  'default' 'core' 'test' 'dev').
+		  hasSameElements: #('TPolTestProject_Dep1'   'TPolTestProject_Dep3'  'core').
 		
 
 ]

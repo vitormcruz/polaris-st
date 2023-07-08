@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#traits : 'TPolProjectDecorator',
 	#classTraits : 'TPolProjectDecorator classTrait',
-	#category : #'Polaris-Core-Project-Decorator'
+	#category : #'Polaris-Core-Project-Decorator-Baseline'
 }
 
 { #category : #'baseline creation' }

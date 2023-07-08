@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#traits : 'TPolBaselineDecoratorExtension',
 	#classTraits : 'TPolBaselineDecoratorExtension classTrait',
-	#category : #'Polaris-Tests-Project-Decorator'
+	#category : #'Polaris-Tests-Project-Decorator-Baseline'
 }
 
 { #category : #decorating }
@@ -11,10 +11,8 @@ PolOkMethodDecoratorExtensionForTest >> addPragmedDependencyTo: spec [
 
 	<PolarisAddedMethod>
 	
-	<todo: 'adicionar versão do tome quando tiver.'>
-	
-	 spec baseline: 'Tome' with: [ spec repository: 'github://vitormcruz/polaris-st:branchForTest/pharo'; loads: #(core) ].
-	 spec group:  'test' with: #('Tome' ).
+	 spec baseline: 'TPolTestProject_Dep3' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ].
+	 spec group:  'core' with: #('TPolTestProject_Dep3' ).
 
 ]
 
