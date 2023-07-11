@@ -25,16 +25,16 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" [ spec
 	   baseline: 'ValidationNotification' with: [ spec repository: 'github://vitormcruz/validation-sensor:master/pharo'; loads: #(core) ];
 
            package: 'Polaris-Core' with: [ spec requires: #('LangExtensions' 'MaterialDesignLite' 'ValidationNotification') ];
-           baseline: 'BaselineOfTPolTestProject' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
-           baseline: 'BaselineOfTPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
-           baseline: 'BaselineOfTPolTestProject_Dep2' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
-           baseline: 'BaselineOfTPolTestProject_Dep3' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo' ];
-           package: 'Polaris-Tests' with: [ spec requires: #('Polaris-Core' 'BaselineOfTPolTestProject' 'Buoy-Tests' 'Tome' 'Mocketry') ];
+           baseline: 'TPolTestProject' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo'; loads: 'baselineOnly' ];
+           baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo'; loads: 'baselineOnly' ];
+           baseline: 'TPolTestProject_Dep2' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo'; loads: 'baselineOnly' ];
+           baseline: 'TPolTestProject_Dep3' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo'; loads: 'baselineOnly' ];
+           package: 'Polaris-Tests' with: [ spec requires: #('Polaris-Core' 'TPolTestProject' 'TPolTestProject_Dep1' 'TPolTestProject_Dep2' 'TPolTestProject_Dep3' 'Buoy-Tests' 'Tome' 'Mocketry') ];
            package: 'Polaris-Core' with: [ spec requires: #() ];
            package: 'Polaris-Tools-Inspector' with: [ spec requires: #('Polaris-Core') ];
 
            group: 'core' with: #('Polaris-Core' 'ValidationNotification' );
-           group: 'test' with: #(core 'Polaris-Tests' 'BaselineOfTPolTestProject' 'BaselineOfTPolTestProject_Dep1' 'BaselineOfTPolTestProject_Dep2' 'BaselineOfTPolTestProject_Dep3');
+           group: 'test' with: #(core 'Polaris-Tests');
            group: 'dev' with: #(test 'Polaris-Tools-Inspector').
 		
 	 ]
