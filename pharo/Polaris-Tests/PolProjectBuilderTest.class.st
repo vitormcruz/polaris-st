@@ -9,7 +9,7 @@ PolProjectBuilderTest >> test_builder_after_minimal [
 
 	| builder |
 	
-	builder := PolProjectBuilder withProjectName: 'TestProject' andAcronym: ''.
+	builder := PolNewProjectBuilder withProjectName: 'TestProject' andAcronym: ''.
 	
 	builder becomeMinimal.
 	

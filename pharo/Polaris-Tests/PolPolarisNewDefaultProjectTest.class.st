@@ -16,8 +16,9 @@ PolPolarisNewDefaultProjectTest >> test_new_project_app_class_should_be_created 
 	
 	self assert: 'PolarisTestProjectMain' asClass superclass equals:  CommandLineHandler.
 	
-	self assert: ('PolarisTestProject-Config' asPackage definedClasses includes: #PolarisTestProjectMain asClass) 
-		  description: 'App class should be created inside the correct package'.
+	
+	self assertClass: #PolarisTestProjectMain asClass
+		  isAtPackage: 'PolarisTestProject-Config' asPackage.
 	
 	
 ]

@@ -8,10 +8,10 @@ Trait {
 }
 
 { #category : #'test util' }
-TPolNewProjectUtils >> assertClass:  aClass isAtPackage: aPackageName [
+TPolNewProjectUtils >> assertClass:  aClass isAtPackage: aPackage [
 
-	self assert: ((RPackage organizer packageNamed: aPackageName) definedClasses includes: aClass) 
-	        description: 'The expeted class ', aClass name,  ' was not created inside the package',  aPackageName.
+	self assert: (aPackage definedClasses includes: aClass)
+	        description: 'The expeted class ', aClass name,  ' was not created inside the package',  aPackage name.
 ]
 
 { #category : #'test util' }

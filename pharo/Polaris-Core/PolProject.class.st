@@ -1,3 +1,7 @@
+"
+I am a superclass for Projects created through `Polaris` and I store information of it that can be used later by aditional tools. 
+My generated subclasses are not strictly necessary and can be removed if desired.
+"
 Class {
 	#name : #PolProject,
 	#superclass : #Object,

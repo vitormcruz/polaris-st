@@ -20,8 +20,8 @@ PolBasicHelloWorldDecoratorTest >> test_decorate_project_creates_correct_srtuctu
 	
 	PolBasicHelloWorldDecorator decorate: projectMock.
 	
-	self assertClass: #PolTstHelloWorld asClass isAtPackage: 'PolTestHelloWorld-Core'.
-	self assertClass: #PolTstHelloWorldTest asClass isAtPackage: 'PolTestHelloWorld-Tests'.
+	self assertClass: #PolTstHelloWorld asClass isAtPackage: 'PolTestHelloWorld-Core' asPackage.
+	self assertClass: #PolTstHelloWorldTest asClass isAtPackage: 'PolTestHelloWorld-Tests' asPackage.
 
 ]
 
@@ -41,7 +41,7 @@ PolBasicHelloWorldDecoratorTest >> test_decorate_project_creates_correct_srtuctu
 	
 	PolBasicHelloWorldDecorator decorate: projectMock.
 	
-	self assertClass: #HelloWorld asClass isAtPackage: 'PolTestHelloWorld-Core'.
-	self assertClass: #HelloWorldTest asClass isAtPackage: 'PolTestHelloWorld-Tests'.
+	self assertClass: #HelloWorld asClass isAtPackage: 'PolTestHelloWorld-Core' asPackage.
+	self assertClass: #HelloWorldTest asClass isAtPackage: 'PolTestHelloWorld-Tests' asPackage.
 
 ]

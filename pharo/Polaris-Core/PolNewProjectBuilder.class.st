@@ -1,5 +1,11 @@
+"
+I am used to configure a new Project to be bootstraped. See `Polaris class` for genereal details on how to bootstrap new Projects.
+
+
+
+"
 Class {
-	#name : #PolProjectBuilder,
+	#name : #PolNewProjectBuilder,
 	#superclass : #Object,
 	#instVars : [
 		'projectName',
@@ -10,32 +16,32 @@ Class {
 }
 
 { #category : #'instance creation' }
-PolProjectBuilder class >> withProjectName: projectNameString andAcronym: acronymString [
+PolNewProjectBuilder class >> withProjectName: projectNameString andAcronym: acronymString [
 
 	^ self new projectName: projectNameString; 
 				  acronym: acronymString.
 ]
 
 { #category : #accessing }
-PolProjectBuilder >> acronym [
+PolNewProjectBuilder >> acronym [
 
 	^ acronym
 ]
 
 { #category : #accessing }
-PolProjectBuilder >> acronym: anObject [
+PolNewProjectBuilder >> acronym: anObject [
 
 	acronym := anObject
 ]
 
 { #category : #config }
-PolProjectBuilder >> becomeMinimal [
+PolNewProjectBuilder >> becomeMinimal [
 
 	decorators := self minimalConfig. 
 ]
 
 { #category : #building }
-PolProjectBuilder >> build [
+PolNewProjectBuilder >> build [
 	"Create a new project using the configuration provided"
 
 	| projectClass |
@@ -45,7 +51,7 @@ PolProjectBuilder >> build [
 ]
 
 { #category : #building }
-PolProjectBuilder >> createProjectMetaClass [
+PolNewProjectBuilder >> createProjectMetaClass [
 
 	| projectClass projNamePrefixed |
 	projNamePrefixed := acronym , projectName.
@@ -67,12 +73,12 @@ PolProjectBuilder >> createProjectMetaClass [
 ]
 
 { #category : #accessing }
-PolProjectBuilder >> decorators [
+PolNewProjectBuilder >> decorators [
 	^ decorators
 ]
 
 { #category : #initialization }
-PolProjectBuilder >> initialize [ 
+PolNewProjectBuilder >> initialize [ 
 
 	super initialize.
 	
@@ -83,20 +89,20 @@ PolProjectBuilder >> initialize [
 ]
 
 { #category : #config }
-PolProjectBuilder >> minimalConfig [
+PolNewProjectBuilder >> minimalConfig [
 
 
 	^ {PolBaselineDecorator} asOrderedCollection.
 ]
 
 { #category : #accessing }
-PolProjectBuilder >> projectName [
+PolNewProjectBuilder >> projectName [
 
 	^ projectName
 ]
 
 { #category : #accessing }
-PolProjectBuilder >> projectName: anObject [
+PolNewProjectBuilder >> projectName: aProjectNameString [
 
-	projectName := anObject
+	projectName := aProjectNameString
 ]

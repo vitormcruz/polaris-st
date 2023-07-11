@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #baselines }
-TemplateBaselineOfProject >> baseline: spec [
+TemplateBaselineOfProject >> baseline: "MetacelloBaselineCosntructor" [ spec
 	<baseline>
         
 	spec for: #'common' do: [

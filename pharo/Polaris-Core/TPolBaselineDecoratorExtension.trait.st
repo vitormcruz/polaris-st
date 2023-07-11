@@ -11,7 +11,7 @@ TPolBaselineDecoratorExtension >> baselineMethodTemplate [
 ]
 
 { #category : #decorating }
-TPolBaselineDecoratorExtension >> decorateBaselineSource: aBaselineClass [
+TPolBaselineDecoratorExtension >> decorateBaselineSource: "BaselineOf" [ aBaselineClass
 
    (RBAddMethodRefactoring
        model: RBNamespace new

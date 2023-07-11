@@ -1,3 +1,17 @@
+"
+I am Polaris, a facade for functionalities provided by the Polaris Project. You can see everything I can do by looking at my class side messages
+
+## Creating Projects
+
+I can be used to bootstrap commons projects. 
+
+- `Polaris class>>#newProjectNamed:` creates a new Project with the specified name using the default configuration. 
+- The `Polaris class>>#newProjectNamed:withAcronym:` adds an acronym to the created project.
+
+To customize project creation, you can use the equivalent pair of messages `Polaris class>>#configureNewProject:` and `Polaris class>>#configureNewProject:withAcronym:`
+
+`<todo: 'Detail more and add examples'>`
+"
 Class {
 	#name : #Polaris,
 	#superclass : #Object,
@@ -19,7 +33,7 @@ Polaris class >> configureNewProject: projectNameString withAcronym: acronymStri
 	"Create a new project builder using defaults configurations with the given project name and acronym. 
 	 Configs can be changed afterwards"
 
-	^ PolProjectBuilder withProjectName: projectNameString andAcronym: acronymString
+	^ PolNewProjectBuilder withProjectName: projectNameString andAcronym: acronymString
 
 		
 
