@@ -22,7 +22,7 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" [ spec
  	   baseline: 'Tome' with: [ spec repository: 'github://vitormcruz/tome:develop/pharo'; loads: #(core) ];
 
   	   baseline: 'MaterialDesignLite'	with: [ spec repository: 'github://DuneSt/MaterialDesignLite:v2.4.2/src'; loads: #(core) ];	
-	   baseline: 'ValidationNotification' with: [ spec repository: 'github://vitormcruz/validation-sensor:master/pharo'; loads: #(core) ];
+	   baseline: 'ValidationSensor' with: [ spec repository: 'github://vitormcruz/validation-sensor:master/pharo'; loads: #(core) ];
 
            package: 'Polaris-Core' with: [ spec requires: #('LangExtensions' 'MaterialDesignLite' 'ValidationNotification') ];
            baseline: 'TPolTestProject' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo'; loads: 'baselineOnly' ];
@@ -33,7 +33,7 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" [ spec
            package: 'Polaris-Core' with: [ spec requires: #() ];
            package: 'Polaris-Tools-Inspector' with: [ spec requires: #('Polaris-Core') ];
 
-           group: 'core' with: #('Polaris-Core' 'ValidationNotification' );
+           group: 'core' with: #('Polaris-Core' 'ValidationSensor' );
            group: 'test' with: #(core 'Polaris-Tests');
            group: 'dev' with: #(test 'Polaris-Tools-Inspector').
 		

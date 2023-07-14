@@ -1,7 +1,7 @@
 Class {
 	#name : #PolDummyDecorator,
 	#superclass : #Object,
-	#traits : 'TPolProjectDecorator',
-	#classTraits : 'TPolProjectDecorator classTrait',
+	#traits : 'TPolProjectDecorator + TPolDecorationByTemplate',
+	#classTraits : 'TPolProjectDecorator classTrait + TPolDecorationByTemplate classTrait',
 	#category : #'Polaris-Tests-Project-Decorator'
 }
