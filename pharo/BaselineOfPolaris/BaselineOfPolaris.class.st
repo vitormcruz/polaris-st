@@ -17,14 +17,14 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" [ spec
 	  baseline: 'LangExtensions' with: [ spec repository: 'github://vitormcruz/sandbox-st:develop'; 
 								 		 loads: #(core) ];
 		
-          baseline: 'Mocketry'  with: [ spec repository: 'github://dionisiydk/Mocketry:v7.0.2' ];
+     baseline: 'Mocketry'  with: [ spec repository: 'github://dionisiydk/Mocketry:v7.0.2' ];
 
  	   baseline: 'Tome' with: [ spec repository: 'github://vitormcruz/tome:develop/pharo'; loads: #(core) ];
 
   	   baseline: 'MaterialDesignLite'	with: [ spec repository: 'github://DuneSt/MaterialDesignLite:v2.4.2/src'; loads: #(core) ];	
 	   baseline: 'ValidationSensor' with: [ spec repository: 'github://vitormcruz/validation-sensor:master/pharo'; loads: #(core) ];
 
-           package: 'Polaris-Core' with: [ spec requires: #('LangExtensions' 'MaterialDesignLite' 'ValidationNotification') ];
+           package: 'Polaris-Core' with: [ spec requires: #('LangExtensions' 'MaterialDesignLite' 'ValidationSensor') ];
            baseline: 'TPolTestProject' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo'; loads: 'baselineOnly' ];
            baseline: 'TPolTestProject_Dep1' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo'; loads: 'baselineOnly' ];
            baseline: 'TPolTestProject_Dep2' with: [ spec repository: 'github://vitormcruz/polaris-st:main/pharo'; loads: 'baselineOnly' ];

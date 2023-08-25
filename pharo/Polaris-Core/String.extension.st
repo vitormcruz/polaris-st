@@ -4,14 +4,13 @@ Extension { #name : #String }
 String >> copyReplacingAll: oldSubstringsList respectivelyBy: newSubstringsList [
 
 	"Replaces the list of substring list by the respective item from the new substring list. 
-	Throw error in case both lists do not have the same size
+	Throw error in case both lists do not have the same size"
 	
-	Examples:
-	('test' copyReplacingAll: nil respectivelyBy: nil) >>> 'test'
-	('test' copyReplacingAll: #('t') respectivelyBy: nil) >>> 'test'
-	('test' copyReplacingAll: nil respectivelyBy: #(noMatter)) >>> 'test'
-	
-	"
+	"('test' copyReplacingAll: nil respectivelyBy: nil) >>> 'test'"
+	"('test' copyReplacingAll: #('t') respectivelyBy: nil) >>> 'test'"
+	"('test' copyReplacingAll: nil respectivelyBy: #(noMatter)) >>> 'test'"
+	"('test' copyReplacingAll: #('e' 's') respectivelyBy: #('ea' 'po')) >>> 'teapot'"
+
 	
 	| newString |
 	
