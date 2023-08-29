@@ -3,3 +3,9 @@ Class {
 	#superclass : #Object,
 	#category : #'Polaris-Tests-Project-Decorator'
 }
+
+{ #category : #'helper methods' }
+DummyTemplateClass >> dummyMethod [ 
+	
+	^ '<dummy return>'.
+]
