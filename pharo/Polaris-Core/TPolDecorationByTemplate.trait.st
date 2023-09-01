@@ -7,7 +7,7 @@ Trait {
 }
 
 { #category : #copying }
-TPolDecorationByTemplate >> copyTemplateClass: aClass replacingAll: "String" tokens by: "String" [ replacements
+TPolDecorationByTemplate >> copyTemplateClass: aClass replacingAll: "String" tokens by: "String" replacements [
 
    | sourceOfClass sourceOfClassAltered |
 
@@ -24,7 +24,7 @@ TPolDecorationByTemplate >> copyTemplateClass: aClass replacingAll: "String" tok
 ]
 
 { #category : #copying }
-TPolDecorationByTemplate >> validate: aClass aListOfTokens: "String list" tokens andReplacements: "String [ list" replacements
+TPolDecorationByTemplate >> validate: aClass aListOfTokens: "String list" tokens andReplacements: "String list" replacements [
 
    [	
        aClass ifNil: [ self issueError: 'Cannot use nil as a template class' ]

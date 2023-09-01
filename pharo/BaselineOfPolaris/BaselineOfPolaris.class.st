@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #baselines }
-BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" [ spec
+BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
 
 	<baseline>
         

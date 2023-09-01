@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #baselines }
-BaselineOfTPolTestProject >> baseline: "MetacelloBaselineCosntructor" [ spec
+BaselineOfTPolTestProject >> baseline: "MetacelloBaselineCosntructor" spec [
 
 	<baseline>
 	
