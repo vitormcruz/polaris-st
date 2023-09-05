@@ -1,0 +1,50 @@
+name: Polaris CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+    container: vitormcruz/pharo:11
+    steps:
+      - uses: actions/checkout@v3.6.0
+
+      - name: Cache Pharo-Local
+        uses: actions/cache@v1.2.1
+        with:
+          path: /opt/pharo/pharo-local/
+          key: Pharo-local-${{ hashFiles('**/BaselineOfPolaris.class.st') }}
+          
+      - name: Build Polaris Core
+        run: pharo /opt/pharo/Pharo.image st --save --quit loadForPipeline.st;
+                
+      - name: Save built-production-image
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: built-production-image
+          path: /opt/pharo/Pharo.image
+          if-no-files-found: error
+          retention-days: 1
+                 
+  Test:
+    runs-on: ubuntu-latest
+    container: vitormcruz/pharo:11
+    needs: [Build]
+    steps:
+      - uses: actions/checkout@v3.6.0
+
+      - name: Cache Pharo-Local
+        uses: actions/cache@v1.2.1
+        with:
+          path: /opt/pharo/pharo-local/
+          key: Pharo-local-${{ hashFiles('**/BaselineOfPolaris.class.st') }}
+
+      - name: Load builded built-production-image
+        uses: actions/download-artifact@v2.1.1
+        with:
+          name: built-production-image
+          path: /opt/pharo/
+
+      - name: Run Tests of Polaris
+        run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error Polaris-Tests;
