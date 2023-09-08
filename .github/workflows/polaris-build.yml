@@ -40,10 +40,10 @@ jobs:
           path: /opt/pharo/pharo-local/
           key: Pharo-local-${{ hashFiles('**/BaselineOfPolaris.class.st') }}
 
-      - name: Load builded built-production-image
+      - name: Load builded built-image
         uses: actions/download-artifact@v2.1.1
         with:
-          name: built-production-image
+          name: built-image
           path: /opt/pharo/
 
       - name: Run Tests of Polaris
