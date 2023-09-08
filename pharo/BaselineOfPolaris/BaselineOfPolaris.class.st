@@ -11,7 +11,9 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
         
     spec for: #'common' do: [
         spec blessing: #'baseline';     
-             baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
+
+					baseline: 'TinyLogger'with: [ spec repository: 'github://jecisc/TinyLogger:v1.3.1/src' ];
+					baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
                  project: 'Buoy-Tests' copyFrom: 'Buoy' with: [ spec loads: #('Dependent-SUnit-Extensions') ];
 
              baseline: 'LangExtensions' with: [ spec repository: 'github://vitormcruz/sandbox-st:develop'; 

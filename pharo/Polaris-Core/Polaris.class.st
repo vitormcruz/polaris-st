@@ -40,6 +40,12 @@ Polaris class >> configureNewProject: projectNameString withAcronym: acronymStri
 
 ]
 
+{ #category : #'class initialization' }
+Polaris class >> initialize [ 
+	
+	TinyLogger default	addStdoutLogger.
+]
+
 { #category : #'project creation' }
 Polaris class >> newProjectNamed: projectNameString [
 
