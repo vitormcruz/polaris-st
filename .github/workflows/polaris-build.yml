@@ -48,3 +48,13 @@ jobs:
 
       - name: Run Tests of Polaris
         run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error Polaris-Tests;
+
+      - name: Save built-production-image
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: Save Pharo Logs
+          path: |
+               /opt/pharo/std*
+               /opt/pharo/*.log
+          if-no-files-found: warn
+          retention-days: 1
