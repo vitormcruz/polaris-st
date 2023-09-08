@@ -51,9 +51,9 @@ jobs:
 
       - name: Save built-production-image
         uses: actions/upload-artifact@v2.2.4
+        if: always()
         with:
           name: Save Pharo Logs
-          if: always()
           path: |
                /opt/pharo/std*
                /opt/pharo/*.log
