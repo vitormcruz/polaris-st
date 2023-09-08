@@ -54,8 +54,9 @@ jobs:
         if: success() || failure()
         with:
           name: Save Pharo Logs
-          path: |
-               /opt/pharo/std*
-               /opt/pharo/*.log
+          path: /opt/pharo/
+          #|
+               #/opt/pharo/std*
+               #/opt/pharo/*.log
           if-no-files-found: warn
           retention-days: 1
