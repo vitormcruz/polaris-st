@@ -53,6 +53,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           name: Save Pharo Logs
+          if: always()
           path: |
                /opt/pharo/std*
                /opt/pharo/*.log
