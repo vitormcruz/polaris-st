@@ -12,7 +12,7 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
     spec for: #'common' do: [
         spec blessing: #'baseline';     
 
-					baseline: 'TinyLogger'with: [ spec repository: 'github://jecisc/TinyLogger:v1.3.1/src' ];
+             baseline: 'Avatar' with: [ spec repository: 'github://vitormcruz/avatar:createBaseline'; loads: #(core) ];	
 					baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
                  project: 'Buoy-Tests' copyFrom: 'Buoy' with: [ spec loads: #('Dependent-SUnit-Extensions') ];
 
@@ -31,7 +31,7 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
              package: 'Polaris-Tests' with: [ spec requires: #('Polaris-Core' 'BaselineOfTPolTestProject' 'BaselineOfTPolTestProject_Dep1' 
                                                                'BaselineOfTPolTestProject_Dep2' 'BaselineOfTPolTestProject_Dep3' 'Buoy-Tests' 
                                                                'Tome' 'Mocketry') ];
-             package: 'Polaris-Core' with: [ spec requires: #() ];
+             package: 'Polaris-Core' with: [ spec requires: #(Avatar) ];
              package: 'Polaris-Tools-Inspector' with: [ spec requires: #('Polaris-Core') ].
 
         spec group: 'core' with: #('Polaris-Core' 'ValidationSensor' );
