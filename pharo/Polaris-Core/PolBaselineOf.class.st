@@ -11,7 +11,7 @@ Class {
 }
 
 { #category : #baselines }
-PolBaselineOf >> baseline: "MetacelloBaselineCosntructor" spec [
+PolBaselineOf >> baseline: "MetacelloBaselineCosntructor" [ spec
 
 	self class methods do: [ :method | 
 		(method hasPragmaNamed:  #PolarisAddedMethod) ifTrue: [ method valueWithReceiver: self arguments: {spec} ]

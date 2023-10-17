@@ -10,7 +10,7 @@ Trait {
 }
 
 { #category : #configuration }
-TPolProjectDecorator classSide >> decorate: "PolProject" aProject [
+TPolProjectDecorator classSide >> decorate: "PolProject" [ aProject
 
 	^ self new project: aProject; decorate.
 ]
@@ -32,7 +32,7 @@ TPolProjectDecorator >> description [
 ]
 
 { #category : #accessing }
-TPolProjectDecorator >> project: "PolProject" aProject [
+TPolProjectDecorator >> project: "PolProject" [ aProject
 
 	aProject ifNil: [ self error: 'Cannot decorate a nil Project' ].
 	project := aProject
