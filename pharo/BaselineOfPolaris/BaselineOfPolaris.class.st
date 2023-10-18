@@ -75,7 +75,7 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
              baseline: 'MaterialDesignLite'	with: [ spec repository: 'github://DuneSt/MaterialDesignLite:v2.4.2/src'; loads: #(core) ];	
              baseline: 'ValidationSensor' with: [ spec repository: 'github://vitormcruz/validation-sensor:master/pharo'; loads: #(core) ];
              package: 'Polaris-Core' with: [ spec requires: #('MaterialDesignLite' 'ValidationSensor') ];
-             package: 'Polaris-Experimental';
+             package: 'Polaris-Experimental' with: [ spec requires: #('Avatar') ];
              package: 'BaselineOfTPolTestProject'; 
              package: 'BaselineOfTPolTestProject_Dep1';
              package: 'BaselineOfTPolTestProject_Dep2'; 
