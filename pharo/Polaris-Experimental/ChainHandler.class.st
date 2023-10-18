@@ -16,7 +16,7 @@ Class {
 	#instVars : [
 		'subject'
 	],
-	#category : #'Polaris-Core'
+	#category : #'Polaris-Experimental'
 }
 
 { #category : #handling }

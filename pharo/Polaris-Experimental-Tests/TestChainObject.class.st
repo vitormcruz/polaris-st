@@ -1,7 +1,7 @@
 Class {
 	#name : #TestChainObject,
 	#superclass : #TestCase,
-	#category : #'Polaris-Tests'
+	#category : #'Polaris-Experimental-Tests'
 }
 
 { #category : #tests }
