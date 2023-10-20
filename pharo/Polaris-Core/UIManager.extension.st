@@ -1,10 +1,10 @@
 Extension { #name : #UIManager }
 
 { #category : #'*Polaris-Core' }
-UIManager class >> decorateCurrentDefaultManagerWith: aHandlerClass [
+UIManager class >> decorateCurrentDefaultManagerWith: aProxyHandler [
 
 	Default := AvForwardingProxy target: Default
-	 			          			    handler: (aHandlerClass new).
+	 			          			    handler: aProxyHandler.
 	
 ]
 

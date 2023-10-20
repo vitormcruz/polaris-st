@@ -1,14 +1,11 @@
 Class {
-	#name : #SpecialActionsUIManagerHandler,
+	#name : #FileOutErrorsUIManagerProxyHandler,
 	#superclass : #Object,
-	#instVars : [
-		'subject'
-	],
 	#category : #'Polaris-Core-Core'
 }
 
 { #category : #'default actions' }
-SpecialActionsUIManagerHandler >> buildUniqueErrorFileName [
+FileOutErrorsUIManagerProxyHandler >> buildUniqueErrorFileName [
 
    ^ (((DateAndTime now asString substrings: '.') at: 1)
          replaceAll: $:
@@ -16,22 +13,18 @@ SpecialActionsUIManagerHandler >> buildUniqueErrorFileName [
 ]
 
 { #category : #handling }
-SpecialActionsUIManagerHandler >> handleMessage: aMessage toTarget: anObject [
+FileOutErrorsUIManagerProxyHandler >> handleMessage: aMessage toTarget: anObject [
 
 	(aMessage selector == #unhandledErrorDefaultAction:) ifTrue: [
 		self unhandledErrorDefaultAction: aMessage argument.
 	].
-
-	(aMessage selector == #bla) ifTrue: [
-		^ 'Vitor esteve aqui.'
-	].	
 
 	^ aMessage sendTo: anObject.
 
 ]
 
 { #category : #'default actions' }
-SpecialActionsUIManagerHandler >> unhandledErrorDefaultAction: anException [
+FileOutErrorsUIManagerProxyHandler >> unhandledErrorDefaultAction: anException [
 
    | errorFilePath errorFileName |
    errorFilePath := FileSystem disk workingDirectory / 'fueled_out_errors'.
