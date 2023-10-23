@@ -53,9 +53,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         if: success() || failure()
         with:
-          name: Save Pharo Logs
           path: |
-              /opt/pharo/
               !/opt/pharo/pharo-local
                /opt/pharo/std*
                /opt/pharo/*.log
