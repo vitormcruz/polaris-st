@@ -47,7 +47,7 @@ jobs:
           path: /opt/pharo/
 
       - name: Run Tests of Polaris
-        run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error Polaris-Tests --save;
+        run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error --fileOutErrors Polaris-Tests --save;
         
       - name: Listing Directory
         if: success() || failure()
