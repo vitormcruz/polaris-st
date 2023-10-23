@@ -50,12 +50,13 @@ jobs:
         run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error Polaris-Tests --save;
         
       - name: Listing Directory
+        if: success() || failure()
         run: |
           ls -la /opt/pharo/
           ls -la /opt/pharo/fueled_out_errors/
       
       - name: Save Error Logs/Files
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v3
         if: success() || failure()
         with:
           path: |
