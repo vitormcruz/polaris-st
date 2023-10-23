@@ -20,7 +20,8 @@ ImprovedTestCommandLineHandler class >> priority [
 ImprovedTestCommandLineHandler >> runPackages [
 	| packages results |
 	
-	UIManager decorateCurrentDefaultManagerWith: FileOutErrorsUIManagerProxyHandler.
+	"(self hasOption: '--fileOutErrors')"
+	UIManager decorateCurrentDefaultManagerWith: FileOutErrorsUIManagerProxyHandler new.
 	packages := self packages.
 	self inform: 'Running tests in ', packages size asString, ' Packages'.
 	UIManager stopDecoratingDeafultManager. 
