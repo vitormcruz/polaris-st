@@ -28,7 +28,6 @@ FileOutErrorsUIManagerProxyHandler >> unhandledErrorDefaultAction: anException [
 
    | errorFilePath errorFileName |
 
-	self traceCr: 'Handling error.'.
    errorFilePath := FileSystem disk workingDirectory / 'fueled_out_errors'.
    errorFilePath ensureCreateDirectory.
    errorFileName := (errorFilePath / self buildUniqueErrorFileName) fullName.

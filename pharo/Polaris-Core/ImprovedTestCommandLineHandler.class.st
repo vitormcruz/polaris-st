@@ -25,10 +25,9 @@ ImprovedTestCommandLineHandler >> runPackages [
 	UIManager decorateCurrentDefaultManagerWith: FileOutErrorsUIManagerProxyHandler new.
 	packages := self packages.
 	self inform: 'Running tests in ', packages size asString, ' Packages'.
-	UIManager stopDecoratingDeafultManager. 
-	self traceCr: 'Finish tests using decorated UIManager'.
 	results := (self testRunner runPackages: self packages) select: #notNil.
-	
+	UIManager stopDecoratingDeafultManager. 
+	self traceCr: 'Finish tests using decorated UIManager'.	
 				
 	self informResults: results.
 	(self hasOption: 'save') ifTrue: [ Smalltalk saveSession ].

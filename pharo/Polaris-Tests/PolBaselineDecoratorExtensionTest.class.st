@@ -21,7 +21,6 @@ PolBaselineDecoratorExtensionTest >> tearDown [
 PolBaselineDecoratorExtensionTest >> test_add_dependency_that_causes_error [
 
 
-	self traceCr: 'Started test'.
 	self should: [ PolConflictDepDecoratorExtensionForTest new decorateBaselineSource: BaselineOfTPolTestProject ] 
 		  raise: MetacelloScriptNotification.
 
