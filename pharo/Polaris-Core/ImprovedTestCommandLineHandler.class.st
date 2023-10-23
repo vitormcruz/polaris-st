@@ -17,26 +17,19 @@ ImprovedTestCommandLineHandler class >> priority [
 ]
 
 { #category : #private }
+ImprovedTestCommandLineHandler >> enableFileOutErrorTestService [
+
+   [ CurrentExecutionEnvironment value enableService: FileOutErrorTestService ]
+      on: MessageNotUnderstood
+      do: [
+         self traceCr:
+            'I could not fileOutErrors because I am not executing inside a TestExecutionEnvironment' 
+      ]
+]
+
+{ #category : #private }
 ImprovedTestCommandLineHandler >> runPackages [
-	| packages results |
-	
-	"(self hasOption: '--fileOutErrors')"
-	self traceCr: 'Started tests using decorated UIManager'.
-	UIManager decorateCurrentDefaultManagerWith: FileOutErrorsUIManagerProxyHandler new.
-	packages := self packages.
-	self inform: 'Running tests in ', packages size asString, ' Packages'.
-	results := (self testRunner runPackages: self packages) select: #notNil.
-	UIManager stopDecoratingDeafultManager. 
-	self traceCr: 'Finish tests using decorated UIManager'.	
-				
-	self informResults: results.
-	(self hasOption: 'save') ifTrue: [ Smalltalk saveSession ].
-	((self hasOption: 'fail-on-failure') 
-		and: [ results anySatisfy: #hasFailuresOrErrors ])
-		ifTrue: [^ self exitFailure: 'Tests do not pass!' ].
-	((self hasOption: 'fail-on-error') 
-		and: [ results anySatisfy: #hasErrors ])
-		ifTrue: [^ self exitFailure: 'Tests do not pass!' ].
-	
-	Smalltalk snapshot: false andQuit: true.
+
+   (self hasOption: 'fileOutErrors') ifTrue: [ self enableFileOutErrorTestService ].
+   super runPackages
 ]
