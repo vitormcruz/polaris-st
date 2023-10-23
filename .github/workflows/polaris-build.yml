@@ -48,13 +48,14 @@ jobs:
 
       - name: Run Tests of Polaris
         run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error Polaris-Tests --save;
-
+        
+      - run: ls -la
+      
       - name: Save Error Logs/Files
         uses: actions/upload-artifact@v2.2.4
         if: success() || failure()
         with:
           path: |
-              !/opt/pharo/pharo-local
                /opt/pharo/std*
                /opt/pharo/*.log
                /opt/pharo/fueled_out_errors/*
