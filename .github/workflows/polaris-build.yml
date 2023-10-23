@@ -49,8 +49,10 @@ jobs:
       - name: Run Tests of Polaris
         run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error Polaris-Tests --save;
         
-      - run: ls -la /opt/pharo/
-      - run: ls -la /opt/pharo/fueled_out_errors/
+      - name: Listing Directory
+        run: |
+          ls -la /opt/pharo/
+          ls -la /opt/pharo/fueled_out_errors/
       
       - name: Save Error Logs/Files
         uses: actions/upload-artifact@v2.2.4
