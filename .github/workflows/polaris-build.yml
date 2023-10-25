@@ -53,7 +53,8 @@ jobs:
         if: success() || failure()
         run: |
           ls -la /opt/pharo/
-          ls -la /opt/pharo/fueled_out_errors/
+          ls -la $GITHUB_WORKSPACE
+          ls -la $GITHUB_WORKSPACE/fueled_out_errors/
       
       - name: Save Error Logs/Files
         uses: actions/upload-artifact@v3
@@ -62,6 +63,6 @@ jobs:
           path: |
                /opt/pharo/std*
                /opt/pharo/*.log
-               ${GITHUB_WORKSPACE}/fueled_out_errors/*
+               $GITHUB_WORKSPACE/fueled_out_errors/*
           if-no-files-found: ignore
           retention-days: 1
