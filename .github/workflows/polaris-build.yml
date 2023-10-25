@@ -63,6 +63,6 @@ jobs:
           path: |
                /opt/pharo/std*
                /opt/pharo/*.log
-               $GITHUB_WORKSPACE/fueled_out_errors/*
+               ${{ github.workspace }}/fueled_out_errors/*
           if-no-files-found: ignore
           retention-days: 1
