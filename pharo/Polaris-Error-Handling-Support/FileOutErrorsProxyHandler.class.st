@@ -40,11 +40,14 @@ FileOutErrorsProxyHandler >> generateFileFrom: anException [
 { #category : #handling }
 FileOutErrorsProxyHandler >> handleMessage: aMessage toTarget: anObject [
 
+	self traceCr: 'Proxy Handling to: ', aMessage selector asString, 'to Object', anObject asString.
+
 	(aMessage selector == #unhandledErrorDefaultAction:) ifTrue: [
 		self unhandledErrorDefaultAction: aMessage argument.
 	].
 
 	(aMessage selector == #runAll) ifTrue: [
+		self traceCr: 'Proxying runAll'.
 		^ self runAllForSuit: anObject suite.
 	].
 
