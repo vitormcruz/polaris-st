@@ -1,7 +1,7 @@
 Class {
 	#name : #FileOutErrorTestService,
 	#superclass : #TestExecutionService,
-	#category : #'Polaris-Core-Core'
+	#category : #'Polaris-Error-Handling-Support'
 }
 
 { #category : #testing }
