@@ -23,7 +23,13 @@ ImprovedTestCommandLineHandler >> testRunner [
 	
 	testRunner := super testRunner.	
 		
-   (self hasOption: 'fileOutErrors') ifTrue: [ testRunner := HDTestReport addFileOutErrorAbilityTo: testRunner ].
+	self traceCr: 'Calling tesRunner altered'.
+		
+   (self hasOption: 'fileOutErrors') ifTrue: [ 
+		self traceCr: 'FileOutError ON'.
+		testRunner := HDTestReport addFileOutErrorAbilityTo: testRunner 
+		
+	].
 
 	^ testRunner.
 ]
