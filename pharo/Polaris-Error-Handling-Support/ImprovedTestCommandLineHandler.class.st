@@ -17,19 +17,11 @@ ImprovedTestCommandLineHandler class >> priority [
 ]
 
 { #category : #private }
-ImprovedTestCommandLineHandler >> testRunner [
+ImprovedTestCommandLineHandler >> runPackages [
 
-	| testRunner |
-	
-	testRunner := super testRunner.	
-		
-	self traceCr: 'Calling tesRunner altered'.
-		
-   (self hasOption: 'fileOutErrors') ifTrue: [ 
+	(self hasOption: 'fileOutErrors') ifTrue: [ 
 		self traceCr: 'FileOutError ON'.
-		testRunner := HDTestReport addFileOutErrorAbilityTo: testRunner 
-		
+		FileOutErrorTestService isEnabled: true.
 	].
-
-	^ testRunner.
+	super runPackages.
 ]
