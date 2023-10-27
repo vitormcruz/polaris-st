@@ -28,7 +28,7 @@ FileOutErrorTestService >> generateFileFrom: anException [
 
 	self traceCr: 'Creating fueled out error on: ', errorFileName.
 
-   anException signalerContext serializeToFileNamed: errorFileName
+   anException serializeToFileNamed: errorFileName
 ]
 
 { #category : #controlling }
