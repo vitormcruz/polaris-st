@@ -17,7 +17,7 @@ TPolBaselineDecoratorExtension >> decorateBaselineSource: "BaselineOf" aBaseline
        model: RBNamespace new
        addMethod: self preapareMethodSourceForBaseline
        toClass: aBaselineClass
-       inProtocols: { 'generated baseline' }) execute.
+       inProtocols: { 'generated_baseline' }) execute.
 
    self verifyBaseline: aBaselineClass
 ]
