@@ -48,21 +48,22 @@ jobs:
 
       - name: Run Tests of Polaris
         run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error --fileOutErrors Polaris-Tests --save;
-        
-      - name: Listing Directory
-        if: success() || failure()
-        run: |
-          ls -la /opt/pharo/
-          ls -la $GITHUB_WORKSPACE
-          ls -la $GITHUB_WORKSPACE/fueled_out_errors/
-      
-      - name: Save Error Logs/Files
+
+      - name: Save All Pharo Folder
         uses: actions/upload-artifact@v3
         if: success() || failure()
         with:
-          path: |
-               /opt/pharo/std*
-               /opt/pharo/*.log
-               fueled_out_errors/*
+          path: /opt/pharo/*
           if-no-files-found: ignore
           retention-days: 1
+      
+      # - name: Save Error Logs/Files
+      #   uses: actions/upload-artifact@v3
+      #   if: success() || failure()
+      #   with:
+      #     path: |
+      #          /opt/pharo/std*
+      #          /opt/pharo/*.log
+      #          fueled_out_errors/*
+      #     if-no-files-found: ignore
+      #     retention-days: 1
