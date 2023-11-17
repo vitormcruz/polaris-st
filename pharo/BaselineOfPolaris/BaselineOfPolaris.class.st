@@ -67,7 +67,8 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
         spec blessing: #'baseline';     
 
              baseline: 'Avatar' with: [ spec repository: 'github://vitormcruz/avatar:createBaseline'; loads: #(core) ];	
-					baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
+             baseline: 'Tome' with: [ spec repository: 'github://vitormcruz/tome:develop'; loads: #(core) ];	
+             baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6.1.0/source' ];
                  project: 'Buoy-Tests' copyFrom: 'Buoy' with: [ spec loads: #('Dependent-SUnit-Extensions') ];
 
              baseline: 'Mocketry'  with: [ spec repository: 'github://dionisiydk/Mocketry:v7.0.2' ];
@@ -83,11 +84,13 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
              package: 'Polaris-Tests' with: [ spec requires: #('Polaris-Core' 'BaselineOfTPolTestProject' 'BaselineOfTPolTestProject_Dep1' 
                                                                'BaselineOfTPolTestProject_Dep2' 'BaselineOfTPolTestProject_Dep3' 'Buoy-Tests' 
                                                                'Mocketry') ];
-             package: 'Polaris-Experimental-Tests' with: [ spec requires: #('Polaris-Experimental') ];
-             package: 'Polaris-Core' with: [ spec requires: #(Avatar) ];
+             "Tome depends on Polaris-Experimental, to avoid circular dependency I will not depend explicitly here 
+					until I decide where to put experimental stuff"
+             package: 'Polaris-Experimental-Tests';
+             package: 'Polaris-Core' with: [ spec requires: #(Avatar Tome) ]; 
              package: 'Polaris-Tools-Inspector' with: [ spec requires: #('Polaris-Core') ].
 
-        spec group: 'core' with: #('Polaris-Core' 'Polaris-Error-Handling-Support' 'Polaris-Experimental' 'ValidationSensor' );
+        spec group: 'core' with: #('Polaris-Core' 'Polaris-Error-Handling-Support' 'ValidationSensor' );
              group: 'test' with: #(core 'Polaris-Tests' 'Polaris-Experimental-Tests');
              group: 'experimental-only' with: #('Polaris-Experimental');
              group: 'dev' with: #(test 'Polaris-Tools-Inspector').	
