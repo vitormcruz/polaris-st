@@ -17,7 +17,7 @@ jobs:
         run: pharo /opt/pharo/Pharo.image st --save --quit loadForPipeline.st;
 
       - name: Run Tests
-        run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error --fileOutErrors Polaris-Tests --save;
+        run: pharo /opt/pharo/Pharo.image test --fail-on-failure --fail-on-error Polaris-Tests --save;
 
       - name: Save Error Logs/Files
         uses: actions/upload-artifact@v3
@@ -29,11 +29,3 @@ jobs:
                fueled_out_errors/*
           if-no-files-found: ignore
           retention-days: 1
-
-      # - name: Save All Pharo Folder
-      #   uses: actions/upload-artifact@v3
-      #   if: success() || failure()
-      #   with:
-      #     path: /opt/pharo/*
-      #     if-no-files-found: ignore
-      #     retention-days: 1
