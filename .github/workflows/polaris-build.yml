@@ -9,6 +9,9 @@ jobs:
     container: vitormcruz/pharo:11
     steps:
       - uses: actions/checkout@v4
+
+      - name: Pharo Version
+        run: pharo /opt/pharo/Pharo.image printVersion;
       
       - name: Build
         run: pharo /opt/pharo/Pharo.image st --save --quit loadForPipeline.st;
