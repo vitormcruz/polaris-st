@@ -74,9 +74,11 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
              baseline: 'Mocketry'  with: [ spec repository: 'github://dionisiydk/Mocketry:v7.0.2' ];
              baseline: 'MaterialDesignLite'	with: [ spec repository: 'github://DuneSt/MaterialDesignLite:v2.4.2/src'; loads: #(core) ];	
              baseline: 'ValidationSensor' with: [ spec repository: 'github://vitormcruz/validation-sensor:master/pharo'; loads: #(core) ];
-             package: 'Polaris-Core' with: [ spec requires: #('MaterialDesignLite' 'ValidationSensor') ];
-             package: 'Polaris-Error-Handling-Support';
+
              package: 'Polaris-Experimental' with: [ spec requires: #('Avatar') ];
+             package: 'Polaris-Experimental-Tests' with: [ spec requires: #('Polaris-Experimental') ];
+             package: 'Polaris-Core' with: [ spec requires: #('MaterialDesignLite' 'ValidationSensor' Avatar Tome 'Polaris-Experimental') ];
+             package: 'Polaris-Error-Handling-Support';
              package: 'BaselineOfTPolTestProject'; 
              package: 'BaselineOfTPolTestProject_Dep1';
              package: 'BaselineOfTPolTestProject_Dep2'; 
@@ -84,15 +86,11 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
              package: 'Polaris-Tests' with: [ spec requires: #('Polaris-Core' 'BaselineOfTPolTestProject' 'BaselineOfTPolTestProject_Dep1' 
                                                                'BaselineOfTPolTestProject_Dep2' 'BaselineOfTPolTestProject_Dep3' 'Buoy-Tests' 
                                                                'Mocketry') ];
-             "Tome depends on Polaris-Experimental, to avoid circular dependency I will not depend explicitly here 
-					until I decide where to put experimental stuff"
-             package: 'Polaris-Experimental-Tests';
-             package: 'Polaris-Core' with: [ spec requires: #(Avatar Tome) ]; 
+
              package: 'Polaris-Tools-Inspector' with: [ spec requires: #('Polaris-Core') ].
 
-        spec group: 'core' with: #('Polaris-Core' 'Polaris-Error-Handling-Support' 'ValidationSensor' );
+        spec group: 'core' with: #('Polaris-Core' 'Polaris-Error-Handling-Support');
              group: 'test' with: #(core 'Polaris-Tests' 'Polaris-Experimental-Tests');
-             group: 'experimental-only' with: #('Polaris-Experimental');
              group: 'dev' with: #(test 'Polaris-Tools-Inspector').	
 	 ]
 ]
