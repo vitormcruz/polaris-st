@@ -22,6 +22,13 @@ TPolNewProjectTestUtils >> assertClass:  aClass isAtPackage: aPackage [
 ]
 
 { #category : #running }
+TPolNewProjectTestUtils >> handleMethodAdded: ann consideringPackageCreated: packagesCreated [
+
+   (packagesCreated includes: ann methodPackage name) ifFalse: [
+        methodsToClean add: ann method name ]
+]
+
+{ #category : #running }
 TPolNewProjectTestUtils >> setUp [
 
    super setUp.
