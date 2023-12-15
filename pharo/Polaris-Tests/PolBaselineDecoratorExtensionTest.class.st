@@ -1,21 +1,10 @@
 Class {
 	#name : #PolBaselineDecoratorExtensionTest,
 	#superclass : #TestCase,
+	#traits : 'TPolNewProjectTestUtils',
+	#classTraits : 'TPolNewProjectTestUtils classTrait',
 	#category : #'Polaris-Tests-Project-Decorator-Baseline'
 }
-
-{ #category : #running }
-PolBaselineDecoratorExtensionTest >> tearDown [
-
-	 | methodsToRemove |
-
-	 methodsToRemove := (BaselineOfTPolTestProject methods select: [ :method | method selector beginsWith: 'polDepFor_' ]) collect: #selector.
-
-	(RBRemoveMethodRefactoring
- 		model: RBNamespace new
-		removeMethods: methodsToRemove
-		from: BaselineOfTPolTestProject) execute.
-]
 
 { #category : #tests }
 PolBaselineDecoratorExtensionTest >> test_add_dependency_that_causes_error [

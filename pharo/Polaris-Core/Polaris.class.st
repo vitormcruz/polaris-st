@@ -41,6 +41,14 @@ Polaris class >> configureNewProject: projectNameString withAcronym: acronymStri
 ]
 
 { #category : #'project creation' }
+Polaris class >> newMinimalProjectNamed: projectNameString [
+
+	"Create a new minimal project using defaults configurations"
+
+	(self configureNewProject: projectNameString withAcronym: '') becomeMinimal build.
+]
+
+{ #category : #'project creation' }
 Polaris class >> newProjectNamed: projectNameString [
 
 	"Create a new project using defaults configurations"

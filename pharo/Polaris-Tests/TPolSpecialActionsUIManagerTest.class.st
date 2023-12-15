@@ -6,6 +6,9 @@ Class {
 
 { #category : #tests }
 TPolSpecialActionsUIManagerTest >> test_fuel_out_on_error [
+
+	self skip: 'missing implementation'
+	
 "
 	| aux |
 	aux := UIManager default.

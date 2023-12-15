@@ -1,8 +1,8 @@
 Class {
 	#name : #PolPolarisNewDefaultProjectTest,
 	#superclass : #TestCase,
-	#traits : 'TPolNewProjectUtils',
-	#classTraits : 'TPolNewProjectUtils classTrait',
+	#traits : 'TPolNewProjectTestUtils',
+	#classTraits : 'TPolNewProjectTestUtils classTrait',
 	#category : #'Polaris-Tests-Project'
 }
 

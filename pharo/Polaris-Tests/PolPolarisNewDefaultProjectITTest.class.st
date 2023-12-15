@@ -1,8 +1,8 @@
 Class {
 	#name : #PolPolarisNewDefaultProjectITTest,
 	#superclass : #TestCase,
-	#traits : 'TPolNewProjectUtils',
-	#classTraits : 'TPolNewProjectUtils classTrait',
+	#traits : 'TPolNewProjectTestUtils',
+	#classTraits : 'TPolNewProjectTestUtils classTrait',
 	#instVars : [
 		'packagesCreatedToClean'
 	],

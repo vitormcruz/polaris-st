@@ -1,8 +1,8 @@
 Class {
 	#name : #PolBasicHelloWorldDecoratorTest,
 	#superclass : #TestCase,
-	#traits : 'TPolNewProjectUtils',
-	#classTraits : 'TPolNewProjectUtils classTrait',
+	#traits : 'TPolNewProjectTestUtils',
+	#classTraits : 'TPolNewProjectTestUtils classTrait',
 	#category : #'Polaris-Tests-Project-Decorator'
 }
 
@@ -10,9 +10,6 @@ Class {
 PolBasicHelloWorldDecoratorTest >> test_decorate_project_creates_correct_srtucture [
 
 	| projectMock |
-	
-	self expectedPackageCreated: 'PolTestHelloWorld-Core'.
-	self expectedPackageCreated: 'PolTestHelloWorld-Test'.
 	
 	projectMock := Mock new.
 	projectMock stub projectName willReturn: 'PolTestHelloWorld'.
@@ -31,9 +28,6 @@ PolBasicHelloWorldDecoratorTest >> test_decorate_project_creates_correct_srtuctu
 	<todo: 'Add more tests. Run the test class, run the hello class etc'>
 
 	| projectMock |
-	
-	self expectedPackageCreated: 'PolTestHelloWorld-Core'.
-	self expectedPackageCreated: 'PolTestHelloWorld-Test'.
 	
 	projectMock := Mock new.
 	projectMock stub projectName willReturn: 'PolTestHelloWorld'.
