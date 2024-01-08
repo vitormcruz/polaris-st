@@ -33,7 +33,7 @@ PolBaselineDecoratorExtensionTest >> test_decorate_baseline_correctly [
 { #category : #tests }
 PolBaselineDecoratorExtensionTest >> test_decorate_baseline_with_method_without_pragma [
 
-	self should: [ PolNoPragmedMethodDecoratorExtensionForTest  new decorateBaselineSource: BaselineOfTPolTestProject ] 
+	self should: [ PolNoPragmedMethodDecoratorExtensionForTest new decorateBaselineSource: BaselineOfTPolTestProject ] 
 		raise: Error 
 		withMessageText: 'The baseline method template must be pragmed with <PolarisAddedMethod>'.
 

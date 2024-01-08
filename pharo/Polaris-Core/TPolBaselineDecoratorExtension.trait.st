@@ -5,7 +5,8 @@ Trait {
 
 { #category : #decorating }
 TPolBaselineDecoratorExtension >> baselineMethodTemplate [
-	"Should return a selector refering to the method template  that should be installed into the base line. The method itself must have a PolarisAddedMethod pragma."
+	"Should return a selector refering to the method template that should be installed into the baseline. 
+	The method itself must have a PolarisAddedMethod pragma."
 
 	self  shouldBeImplemented.
 ]

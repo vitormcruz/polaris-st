@@ -1,5 +1,5 @@
 "
-I define a protocol to to Decorators of projects.
+I define a protocol for Decorators of Projects.
 "
 Trait {
 	#name : #TPolProjectDecorator,
