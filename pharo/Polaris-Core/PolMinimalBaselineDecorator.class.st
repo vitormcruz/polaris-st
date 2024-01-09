@@ -1,5 +1,5 @@
 Class {
-	#name : #PolBaselineDecorator,
+	#name : #PolMinimalBaselineDecorator,
 	#superclass : #Object,
 	#traits : 'TPolProjectDecorator',
 	#classTraits : 'TPolProjectDecorator classTrait',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #'baseline creation' }
-PolBaselineDecorator >> baselineSourceFor: projectNameString [
+PolMinimalBaselineDecorator >> baselineSourceFor: projectNameString [
 
 	^ 'baseline: spec
 	<baseline>
@@ -46,7 +46,7 @@ PolBaselineDecorator >> baselineSourceFor: projectNameString [
 ]
 
 { #category : #configuration }
-PolBaselineDecorator >> decorate [
+PolMinimalBaselineDecorator >> decorate [
 
 	| baselineName baselineClass |
 	
@@ -63,7 +63,7 @@ PolBaselineDecorator >> decorate [
 ]
 
 { #category : #configuration }
-PolBaselineDecorator >> description [ 
+PolMinimalBaselineDecorator >> description [ 
 	
 	"Should return a small descripition of this configuration"
 	

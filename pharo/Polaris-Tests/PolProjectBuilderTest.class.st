@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #tests }
-PolProjectBuilderTest >> test_builder_after_minimal [
+PolProjectBuilderTest >> test_minimal_config [
 
 	| builder |
 	
@@ -14,6 +14,6 @@ PolProjectBuilderTest >> test_builder_after_minimal [
 	builder becomeMinimal.
 	
 	self assertCollection: builder decorators
-	     hasSameElements: { PolBaselineDecorator } 
+	     hasSameElements: { PolMinimalBaselineDecorator } 
 	
 ]

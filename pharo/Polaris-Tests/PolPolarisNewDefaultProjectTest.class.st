@@ -1,3 +1,6 @@
+"
+This class contains tests
+"
 Class {
 	#name : #PolPolarisNewDefaultProjectTest,
 	#superclass : #TestCase,
@@ -9,6 +12,7 @@ Class {
 { #category : #tests }
 PolPolarisNewDefaultProjectTest >> test_new_project_app_class_should_be_created [
 
+	<todo: 'All the methods from this class showld be created as scenarios on features.'>
 
 	Polaris newProjectNamed: 'PolarisTestProject'.
 	

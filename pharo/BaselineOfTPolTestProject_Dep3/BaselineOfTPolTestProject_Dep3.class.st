@@ -1,6 +1,8 @@
 Class {
 	#name : #'BaselineOfTPolTestProject_Dep3',
-	#superclass : #PolBaselineOf,
+	#superclass : #BaselineOf,
+	#traits : 'TPolExecExtensionsForBaselineOf',
+	#classTraits : 'TPolExecExtensionsForBaselineOf classTrait',
 	#category : #'BaselineOfTPolTestProject_Dep3'
 }
 
@@ -9,7 +11,7 @@ BaselineOfTPolTestProject_Dep3 >> baseline: "MetacelloBaselineCosntructor" spec 
 
 	<baseline>
 	
-	super baseline: spec.
+	self executeExtensionsConfigsFor: spec.
         
 	spec for: #'common' do: [
 		spec blessing: #'baseline';

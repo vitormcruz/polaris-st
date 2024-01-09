@@ -16,7 +16,7 @@ PolOkMethodDecoratorExtensionForTest >> addPragmedDependencyTo: spec [
 
 ]
 
-{ #category : #decorating }
+{ #category : #'hot spot' }
 PolOkMethodDecoratorExtensionForTest >> baselineMethodTemplate [
 	"Should return a selector refering to the method template  that should be installed into the base line"
 

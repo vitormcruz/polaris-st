@@ -3,7 +3,9 @@ I am used to represent a secopnd dependency for Baseline Extension tests
 "
 Class {
 	#name : #'BaselineOfTPolTestProject_Dep2',
-	#superclass : #PolBaselineOf,
+	#superclass : #BaselineOf,
+	#traits : 'TPolExecExtensionsForBaselineOf',
+	#classTraits : 'TPolExecExtensionsForBaselineOf classTrait',
 	#category : #'BaselineOfTPolTestProject_Dep2'
 }
 
@@ -12,7 +14,7 @@ BaselineOfTPolTestProject_Dep2 >> baseline: "MetacelloBaselineCosntructor" spec 
 
 	<baseline>
 	
-	super baseline: spec.
+	self executeExtensionsConfigsFor: spec.
         
 	spec for: #'common' do: [
 		spec blessing: #'baseline'.

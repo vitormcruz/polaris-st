@@ -15,7 +15,7 @@ PolConflictDepDecoratorExtensionForTest >> addConflictingDependencyTo: spec [
 	 spec group:  'core' with: #('TPolTestProject_Dep2' ).
 ]
 
-{ #category : #decorating }
+{ #category : #'hot spot' }
 PolConflictDepDecoratorExtensionForTest >> baselineMethodTemplate [
 	"Should return a selector refering to the method template  that should be installed into the base line"
 

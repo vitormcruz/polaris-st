@@ -83,7 +83,7 @@ PolNewProjectBuilder >> initialize [
 	super initialize.
 	
 	"Default decorators"
-	decorators := { PolBaselineDecorator. PolCommandLineMainClassDecorator. 
+	decorators := { PolMinimalBaselineDecorator. PolCommandLineMainClassDecorator. 
 					   PolBasicHelloWorldDecorator. PolHelloWorldFeatureDecorator. 
 					   PolSeasideDecorator. } asOrderedCollection 
 ]
@@ -92,7 +92,7 @@ PolNewProjectBuilder >> initialize [
 PolNewProjectBuilder >> minimalConfig [
 
 
-	^ {PolBaselineDecorator} asOrderedCollection.
+	^ {PolMinimalBaselineDecorator} asOrderedCollection.
 ]
 
 { #category : #accessing }
