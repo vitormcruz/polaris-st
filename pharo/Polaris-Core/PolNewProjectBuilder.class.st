@@ -35,6 +35,12 @@ PolNewProjectBuilder >> acronym: anObject [
 ]
 
 { #category : #config }
+PolNewProjectBuilder >> addDecorators: aCollection [ 
+
+	decorators addAll: aCollection.
+]
+
+{ #category : #config }
 PolNewProjectBuilder >> becomeMinimal [
 
 	decorators := self minimalConfig. 
@@ -48,6 +54,12 @@ PolNewProjectBuilder >> build [
 	
 	projectClass := self createProjectMetaClass.
 	decorators do: [ :decorator |  decorator decorate: projectClass ].
+]
+
+{ #category : #config }
+PolNewProjectBuilder >> cleanConfig [
+
+	decorators removeAll.
 ]
 
 { #category : #building }
@@ -85,7 +97,7 @@ PolNewProjectBuilder >> initialize [
 	"Default decorators"
 	decorators := { PolMinimalBaselineDecorator. PolCommandLineMainClassDecorator. 
 					   PolBasicHelloWorldDecorator. PolHelloWorldFeatureDecorator. 
-					   PolSeasideDecorator. } asOrderedCollection 
+					   PolSeasideDecorator. } asSet
 ]
 
 { #category : #config }

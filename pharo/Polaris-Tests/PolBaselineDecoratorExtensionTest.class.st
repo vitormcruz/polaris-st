@@ -38,3 +38,10 @@ PolBaselineDecoratorExtensionTest >> test_decorate_baseline_with_method_without_
 		withMessageText: 'The baseline method template must be pragmed with <PolarisAddedMethod>'.
 
 ]
+
+{ #category : #tests }
+PolBaselineDecoratorExtensionTest >> test_decoration_extension_error_should_rollback [
+
+
+	self skip: 'Implement'
+]

@@ -9,6 +9,37 @@ Class {
 { #category : #'baseline creation' }
 PolMinimalBaselineDecorator >> baselineSourceFor: projectNameString [
 
+	<todo: 'Should flexibilize the organization of packages. I am basing on Clean Code for Now'>
+
+	^ 'baseline: spec
+	<baseline>
+        
+	spec for: #''common'' do: [
+		spec blessing: #''baseline'';     
+		
+		baseline: ''Buoy'' with: [ spec repository: ''github://ba-st/Buoy:v6.1.0/source'' ];
+		project: ''Buoy-Tests'' copyFrom: ''Buoy'' with: [ spec loads: #(''Dependent-SUnit-Extensions'') ];
+
+		package: ''{1}-Core'';
+		package: ''{1}-Adapter'' with: [ spec requires: #(''{1}-Core'') ];
+		package: ''{1}-Config'' with: [ spec requires: #(''{1}-Adapter'') ];
+		
+		package: ''{1}-Tests'' with: [ spec requires: #(''{1}-Config'' ''Buoy-Tests'') ];
+		
+		package: ''{1}-Tools'';
+		
+		group: ''core'' with: #(''{1}-Config'');
+		group: ''test'' with: #(core ''{1}-Tests'');
+		group: ''dev'' with: #(test ''{1}-Tools'')
+		
+	].' format: { projectNameString }
+]
+
+{ #category : #'baseline creation' }
+PolMinimalBaselineDecorator >> baselineSourceFullFor: projectNameString [
+
+	<todo: 'estou separando as partes dessa baseline, deixei tudo aqui para ir pegando aos poucos.' >
+
 	^ 'baseline: spec
 	<baseline>
         
@@ -38,7 +69,6 @@ PolMinimalBaselineDecorator >> baselineSourceFor: projectNameString [
 		
 		package: ''{1}-Tools'';
 		
-		group: ''default'' with: #(''dev'');
 		group: ''core'' with: #(''{1}-Core'' ''{1}-Adapter'' ''{1}-Config'' ''ValidationNotification'');
 		group: ''test'' with: #(core ''{1}-Tests'' ''{1}-AcceptanceCriteria'');
 		group: ''dev'' with: #(test ''Seaside-Dev'' ''{1}-Tools'')

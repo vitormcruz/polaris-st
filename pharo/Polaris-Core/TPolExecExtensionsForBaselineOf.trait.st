@@ -11,7 +11,7 @@ Usage:
 "
 Trait {
 	#name : #TPolExecExtensionsForBaselineOf,
-	#category : #'Polaris-Core-Project'
+	#category : #'Polaris-Core-Project-Decorator-Baseline'
 }
 
 { #category : #baselines }

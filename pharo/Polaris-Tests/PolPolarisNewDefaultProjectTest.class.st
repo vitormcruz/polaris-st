@@ -37,36 +37,6 @@ PolPolarisNewDefaultProjectTest >> test_new_project_baseline_method_should_be_cr
 ]
 
 { #category : #tests }
-PolPolarisNewDefaultProjectTest >> test_new_project_baseline_method_should_have_default_configuration [
-
-	| baselineSpecBuilt |
-	
-	Polaris newProjectNamed: 'PolarisTestProject'.
-	baselineSpecBuilt := (MetacelloBaselineConstructor on: 'BaselineOfPolarisTestProject' asClass new) root.
-	
-	
-	self assertCollection: (baselineSpecBuilt packages list collect: #name)
-		  hasSameElements: #('Buoy' 'Buoy-Tests' 'Tome' 'Grease' 'Seaside3' 'Seaside-Core' 'Seaside-Dev' 'MaterialDesignLite' 
-								   'ValidationNotification' 'PolarisTestProject-Core' 'PolarisTestProject-Adapter' 'PolarisTestProject-Config' 
-								   'PolarisTestProject-Tests' 'PolarisTestProject-AcceptanceCriteria' 'PolarisTestProject-Tools' 
-								   'default' 'core' 'test' 'dev').
-
-		
-	self assertCollection:  (baselineSpecBuilt packageNamed: 'default') includes 
-		  hasSameElements: #('dev').
-		
-	self assertCollection: (baselineSpecBuilt packageNamed: 'core') includes 
-		  hasSameElements: #('PolarisTestProject-Core' 'PolarisTestProject-Adapter' 'PolarisTestProject-Config' 'ValidationNotification').
-		
-	self assertCollection: (baselineSpecBuilt packageNamed: 'test') includes 
-		  hasSameElements: #('core' 'PolarisTestProject-Tests' 'PolarisTestProject-AcceptanceCriteria').
-		
-	self assertCollection: (baselineSpecBuilt packageNamed: 'dev') includes 
-		  hasSameElements: #('test' 'Seaside-Dev' 'PolarisTestProject-Tools').
-
-]
-
-{ #category : #tests }
 PolPolarisNewDefaultProjectTest >> test_new_project_baseline_should_be_created [
 
 

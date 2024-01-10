@@ -14,6 +14,8 @@ PolPolarisNewDefaultProjectITTest >> test_new_project_app_class_should_have_acti
 
 	| createdClass |
 	
+	<todo: 'remover daqui e colcoar em algum scenario'>
+	
 	Polaris newProjectNamed: 'PolarisTestProject'.
 	createdClass := 'PolarisTestProjectMain' asClass.
 	
@@ -30,18 +32,4 @@ PolPolarisNewDefaultProjectITTest >> test_new_project_app_class_should_have_acti
 	WAAdmin defaultDispatcher defaultName: ''PolarisTestProject''.
 
 	Smalltalk snapshot: false andQuit: false') copyReplaceAll: ' ' with: '' ).
-]
-
-{ #category : #tests }
-PolPolarisNewDefaultProjectITTest >> test_new_project_baseline_should_load_correctly [
-
-	self skip.
-
-	Polaris newProjectNamed: 'PolarisTestProject'.
-	"TODO: implement test that loads the projects created and asserts. (Unload?? Too hard to do this right now)"
-	
-	
-	
-	
-	
 ]
