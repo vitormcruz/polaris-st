@@ -104,7 +104,7 @@ PolNewProjectBuilder >> initialize [
 PolNewProjectBuilder >> minimalConfig [
 
 
-	^ {PolMinimalBaselineDecorator} asOrderedCollection.
+	^ {PolMinimalProjectDecorator} asOrderedCollection.
 ]
 
 { #category : #accessing }

@@ -6,7 +6,8 @@ Class {
 	#name : #PolProject,
 	#superclass : #Object,
 	#classInstVars : [
-		'buildTool'
+		'buildTool',
+		'decorations'
 	],
 	#category : #'Polaris-Core-Project'
 }
@@ -51,11 +52,19 @@ PolProject class >> createFeature: aFeatureTitle forProject: aProjectName [
 			install.
 ]
 
+{ #category : #accessing }
+PolProject class >> decorations [
+
+	^ decorations ifNil: [ decorations := Set new ] 
+						 else: [ :it | it clone ] .
+]
+
 { #category : #initialization }
 PolProject class >> initialize [
 
 	self class initializeSlots: self.
 	super initialize.
+	decorations := Set new.
 ]
 
 { #category : #info }
@@ -64,10 +73,16 @@ PolProject class >> projectName [
 	self subclassResponsibility.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessors }
 PolProject class >> projectNamePrefixedAcronym [
 
 	^ self acronym, self projectName.
+]
+
+{ #category : #decoration }
+PolProject class >> wasDecoratedBy:  "TPolProjectDecorator" aClass [ 
+
+	decorations add: aClass.
 ]
 
 { #category : #initialization }

@@ -21,11 +21,40 @@ TPolNewProjectTestUtils >> assertClass:  aClass isAtPackage: aPackage [
 	        description: 'The expeted class ', aClass name,  ' was not created inside the package',  aPackage name.
 ]
 
+{ #category : #'test util' }
+TPolNewProjectTestUtils >> baselineClassNameForProject: projectName [
+
+    "Return the corresponding a Baseline Name for the provided projectName if it exists or an empty
+     string otherwise."
+
+    ^ [ ('BaselineOf' , projectName) asClass name ] on: NotFound do: [ '' ]
+]
+
+{ #category : #'test util' }
+TPolNewProjectTestUtils >> baselineMethodNameForProject: projectName [
+
+	"Return 'baseline' if both the BaselineOf class and the baseline method exists for the provided projectName, 
+	otherwise return an empty string."
+
+    ^ [ (('BaselineOf' , projectName) asClass methodDict at: #baseline:) selector ] on: NotFound do: [ '' ]
+]
+
 { #category : #running }
 TPolNewProjectTestUtils >> handleMethodAdded: ann consideringPackageCreated: packagesCreated [
 
    (packagesCreated includes: ann methodPackage name) ifFalse: [
         methodsToClean add: ann method name ]
+]
+
+{ #category : #'test util' }
+TPolNewProjectTestUtils >> packagesNamesForProject: projectName [
+
+    "Return the corresponding packages coma separated names for the provided projectName if it exists or an empty
+     string otherwise."
+
+	^ ( RPackage organizer packageNames select: [ :name | name beginsWith: 'sssPolaris-' ]) asSortedCollection 
+			ifNotEmpty: [ :it | it reduce: [ :a :b | a, ', ', b ]  ]
+			ifEmpty: [ '' ].
 ]
 
 { #category : #running }

@@ -12,7 +12,7 @@ Trait {
 { #category : #configuration }
 TPolProjectDecorator classSide >> decorate: "PolProject" aProject [
 
-	^ self new project: aProject; decorate.
+	^ self new project: aProject; decorateCompose.
 ]
 
 { #category : #configuration }
@@ -21,6 +21,25 @@ TPolProjectDecorator >> decorate [
 	"Will be called during the project creation to make it's decoration "
 	
 	self subclassResponsibility.
+]
+
+{ #category : #configuration }
+TPolProjectDecorator >> decorateCompose [
+
+	| dependenciesMissing |
+	
+	dependenciesMissing := self dependencies difference: project decorations.
+	dependenciesMissing do: [ :decorator | decorator decorate: project ].
+	self decorate.
+	project wasDecoratedBy: self class.
+]
+
+{ #category : #configuration }
+TPolProjectDecorator >> dependencies [
+
+	"Should return a list of dependents decorators. The default is no dependency, thus and  empty list"
+	
+	^ #().
 ]
 
 { #category : #configuration }
