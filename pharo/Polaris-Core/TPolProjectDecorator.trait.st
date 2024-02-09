@@ -16,6 +16,20 @@ TPolProjectDecorator classSide >> decorate: "PolProject" aProject [
 ]
 
 { #category : #configuration }
+TPolProjectDecorator >> createClassNamed: aClassName commentedWith: aComment withSufixForPackage: aPackageSufix [
+
+	| createdClass |
+	
+	createdClass := (Object << (project projectNamePrefixedAcronym , aClassName) asSymbol)
+		                slots: {  };
+		                package: project projectName , '-', aPackageSufix;
+		                install.
+
+	createdClass comment: aComment.
+	^ createdClass
+]
+
+{ #category : #configuration }
 TPolProjectDecorator >> decorate [
 
 	"Will be called during the project creation to make it's decoration "
@@ -37,7 +51,7 @@ TPolProjectDecorator >> decorateCompose [
 { #category : #configuration }
 TPolProjectDecorator >> dependencies [
 
-	"Should return a list of dependents decorators. The default is no dependency, thus and  empty list"
+	"Should return a list of dependents decorators. The default is no dependency, thus an empty list"
 	
 	^ #().
 ]

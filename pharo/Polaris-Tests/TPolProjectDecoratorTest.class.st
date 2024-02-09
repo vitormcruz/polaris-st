@@ -11,6 +11,14 @@ TPolProjectDecoratorTest >> tearDown [
 ]
 
 { #category : #tests }
+TPolProjectDecoratorTest >> test_decorate_with_N_dependencies [
+
+	PolNDummyDepDecorator decorate: PolDummyProject.
+	self assertCollection: PolDummyProject decorations 
+			hasSameElements: { PolNDummyDepDecorator. PolNoDummyDepDecorator. PolNoDummyDepDecorator2. }.
+]
+
+{ #category : #tests }
 TPolProjectDecoratorTest >> test_decorate_with_One_dependency [
 
 	PolOneDummyDepDecorator decorate: PolDummyProject.

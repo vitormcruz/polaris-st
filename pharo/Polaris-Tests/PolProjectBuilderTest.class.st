@@ -14,6 +14,6 @@ PolProjectBuilderTest >> test_minimal_config [
 	builder becomeMinimal.
 	
 	self assertCollection: builder decorators
-	     hasSameElements: { PolMinimalBaselineDecorator } 
+	     hasSameElements: { PolMinimalProjectDecorator } 
 	
 ]

@@ -52,7 +52,7 @@ TPolNewProjectTestUtils >> packagesNamesForProject: projectName [
     "Return the corresponding packages coma separated names for the provided projectName if it exists or an empty
      string otherwise."
 
-	^ ( RPackage organizer packageNames select: [ :name | name beginsWith: 'sssPolaris-' ]) asSortedCollection 
+	^ ( RPackage organizer packageNames select: [ :name | name beginsWith: projectName, '-' ]) asSortedCollection 
 			ifNotEmpty: [ :it | it reduce: [ :a :b | a, ', ', b ]  ]
 			ifEmpty: [ '' ].
 ]

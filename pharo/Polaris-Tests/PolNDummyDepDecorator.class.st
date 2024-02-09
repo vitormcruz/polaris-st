@@ -1,5 +1,5 @@
 Class {
-	#name : #PolOneDummyDepDecorator,
+	#name : #PolNDummyDepDecorator,
 	#superclass : #Object,
 	#traits : 'TPolProjectDecorator',
 	#classTraits : 'TPolProjectDecorator classTrait',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #configuration }
-PolOneDummyDepDecorator >> decorate [
+PolNDummyDepDecorator >> decorate [
 
 	"Will be called during the project creation to make it's decoration "
 	
@@ -15,9 +15,9 @@ PolOneDummyDepDecorator >> decorate [
 ]
 
 { #category : #configuration }
-PolOneDummyDepDecorator >> dependencies [
+PolNDummyDepDecorator >> dependencies [
 
-	"Should return a list of dependents decorators. The default is no dependency, thus an empty list"
+	"Should return a list of dependents decorators. The default is no dependency, thus and  empty list"
 	
-	^ { PolNoDummyDepDecorator }.
+	^ { PolNoDummyDepDecorator. PolNoDummyDepDecorator. PolNoDummyDepDecorator2 }.
 ]

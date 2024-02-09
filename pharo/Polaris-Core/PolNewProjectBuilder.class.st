@@ -70,7 +70,8 @@ PolNewProjectBuilder >> createProjectMetaClass [
 
 	projectClass := (PolProject << projNamePrefixed asSymbol)
 		                slots: {  };
-		                package: projectName , '-Tools-Polaris';
+								tag: 'Polaris';
+		                package: projectName , '-Tools';
 		                install.
 
 	projectClass class

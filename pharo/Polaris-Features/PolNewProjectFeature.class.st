@@ -17,7 +17,8 @@ PolNewProjectFeature >> Create_a_Minimal_New_Project [
 					 Then the project is created with:
 					  - A simple class named "equals: ''BaselineOfBlogProject''" ;
 					  - A "equals: ''baseline:''" method;
-					  - The following created packages: "equals: ''BlogProject-Adapter, BlogProject-Config, BlogProject-Core, BlogProject-Tests, BlogProject-Tools''"'
+					  - The following created packages: "equals: ''BlogProject-Adapter, BlogProject-Config,', 
+					 ' BlogProject-Core, BlogProject-Tests, BlogProject-Tools, BlogProject-Tools-Polaris''"'
         run: [ :projectName :assertBaselineClass :assertBaselineMethodName :assertPackagesCreated |
 				assertBaselineClass testFailFor: (self baselineClassNameForProject: projectName).
 				assertBaselineMethodName testFailFor: (self baselineMethodNameForProject: projectName).

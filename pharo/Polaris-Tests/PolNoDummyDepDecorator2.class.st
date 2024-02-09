@@ -1,5 +1,5 @@
 Class {
-	#name : #PolOneDummyDecorator,
+	#name : #PolNoDummyDepDecorator2,
 	#superclass : #Object,
 	#traits : 'TPolProjectDecorator',
 	#classTraits : 'TPolProjectDecorator classTrait',
@@ -7,9 +7,9 @@ Class {
 }
 
 { #category : #configuration }
-PolOneDummyDecorator >> decorate [
+PolNoDummyDepDecorator2 >> decorate [
 
 	"Will be called during the project creation to make it's decoration "
 	
-	"Do nothing".
+	project addDummyChange: 'NoDummyDepChange'.
 ]
