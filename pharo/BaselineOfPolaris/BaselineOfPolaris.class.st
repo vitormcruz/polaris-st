@@ -87,10 +87,11 @@ BaselineOfPolaris >> baseline: "MetacelloBaselineCosntructor" spec [
                                                                'BaselineOfTPolTestProject_Dep2' 'BaselineOfTPolTestProject_Dep3' 'Buoy-Tests' 
                                                                'Mocketry') ];
 
+             package: 'Polaris-Features' with: [ spec requires: #('Polaris-Core') ];
              package: 'Polaris-Tools-Inspector' with: [ spec requires: #('Polaris-Core') ].
 
         spec group: 'core' with: #('Polaris-Core' 'Polaris-Error-Handling-Support');
-             group: 'test' with: #(core 'Polaris-Tests' 'Polaris-Experimental-Tests');
+             group: 'test' with: #(core 'Polaris-Tests' 'Polaris-Experimental-Tests' 'Polaris-Features');
              group: 'dev' with: #(test 'Polaris-Tools-Inspector').	
 	 ]
 ]
