@@ -6,9 +6,12 @@ I am Polaris, a facade for functionalities provided by the Polaris Project. You 
 I can be used to bootstrap commons projects. 
 
 - `Polaris class>>#newProjectNamed:` creates a new Project with the specified name using the default configuration. 
+- `Polaris class>>#newminimalProjectNamed:` creates a new Project with the specified name using the minimla configuration, 
+basically containing a baseline, the default layers and some example classes.
 - The `Polaris class>>#newProjectNamed:withAcronym:` adds an acronym to the created project.
 
-To customize project creation, you can use the equivalent pair of messages `Polaris class>>#configureNewProject:` and `Polaris class>>#configureNewProject:withAcronym:`
+To customize project creation, you can use the equivalent pair of messages `Polaris class>>#configureNewProject:` and `Polaris class>>#configureNewProject:withAcronym:`. Those messages will return a `PolNewProjectBuild`, which you can look at for 
+configuration information.
 
 `<todo: 'Detail more and add examples'>`
 "

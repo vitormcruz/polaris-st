@@ -1,5 +1,10 @@
 "
-I am used to configure a new Project to be bootstraped. See `Polaris class` for genereal details on how to bootstrap new Projects.
+I am used to configure and build new Project in detail, see `Polaris class` for general ways of bootstraping new Projects.
+
+Use `PolNewProjectBuild class>>#withProjectName:andAcronym:` to create a new default configured builder project. A name must be provided, but the acronym can be empty. Configuration is made by applying or removing decorators to the project build, and it can be done by the messages in the ""confi"" protocol:
+
+- becomeMinimal: apply the `minimalConfig` list of decorator to the project builder;
+- addDecorators: add a list of decorator to the project builds. See all the provided decorator on `#Polaris-Core-Project-Decorator` package.
 
 
 
