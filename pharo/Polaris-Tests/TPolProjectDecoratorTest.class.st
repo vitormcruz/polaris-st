@@ -5,7 +5,8 @@ Class {
 }
 
 { #category : #running }
-TPolProjectDecoratorTest >> tearDown [
+TPolProjectDecoratorTest >> setUp [
+	super setUp.
 
 	PolDummyProject clearDecorations.
 ]

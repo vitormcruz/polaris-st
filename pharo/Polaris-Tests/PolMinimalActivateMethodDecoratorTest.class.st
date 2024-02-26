@@ -85,5 +85,5 @@ PolMinimalActivateMethodDecoratorTest >> test_decorate_activation_method_with_no
 	PolMinimalActivateMethodDecorator decorate: PolDummyProject.
 	mainObject := (PolDummyProject projectName , 'Main') asClass new.
 
-	self assert: mainObject activate equals: mainObject.
+	self assert: mainObject activate equals: 'Configure here the startup of your application'.
 ]

@@ -9,7 +9,7 @@ Class {
 { #category : #configuration }
 PolCommandLineMainClassDecorator >> decorate [
 
-	(project projectName, 'Main') asClass subclass: #CommandLineHandler.
+	(project projectName, 'Main') asClass superclass: CommandLineHandler.
 ]
 
 { #category : #configuration }

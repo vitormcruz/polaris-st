@@ -11,7 +11,8 @@ PolMinimalActivateMethodDecorator >> decorate [
 
 	(project projectName, 'Main') asClass
 		compile: 'activate
-	self executeActivateExtensions.'
+	self executeActivateExtensions.
+	^ ''Configure here the startup of your application'''
 		classified: 'activation'
 ]
 

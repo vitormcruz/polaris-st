@@ -3,6 +3,9 @@ Class {
 	#superclass : #TomeFeature,
 	#traits : 'TPolNewProjectTestUtils',
 	#classTraits : 'TPolNewProjectTestUtils classTrait',
+	#instVars : [
+		'configurationByKeyName'
+	],
 	#category : #'Polaris-Features'
 }
 
@@ -15,7 +18,7 @@ PolNewProjectFeature >> Create_a_Command_Line_New_Project [
         def:	'Given a new project named "BlogProject"
 					 When I try to create it with Polaris using "Command Line" configuration
 					 Then the project is created with minimal configuration and with:
-					  - A "Main" class that subclasses from "equals: ''CommandLineHandler''"  
+					  - A "BlogProjectMain" class that subclasses from "equals: ''CommandLineHandler''"  
 					  - The main class must have a method named "equals: ''activate''"
 					  - When called, the activation method should return the message "equals: ''Configure here the startup of your application''"'
         run: [ :projectName :projectConfigurationName :mainClassName :assertMainSuperclass :assertActivateMethod :assertActivateResult |
@@ -25,11 +28,11 @@ PolNewProjectFeature >> Create_a_Command_Line_New_Project [
 				
 				(Polaris configureNewProject: projectName) 
 					becomeMinimal; 
-					addDecorators: {PolCommandLineMainClassDecorator};
+					addDecorators: {self decoratorFor: projectConfigurationName };
 					build.
 					
 				assertMainSuperclass assertSuccessFor: mainClassName asClass superclass name.
-				assertActivateMethod assertSuccessFor: (self findMethod: 'activate' onClassName: mainClassName).
+				assertActivateMethod assertSuccessFor: (self findMethod: #activate onClassName: mainClassName).
 				assertActivateResult assertSuccessFor: ([ mainClassName asClass new activate ] on: NotFound do: [ '' ]).
         ]
 ]
@@ -58,10 +61,25 @@ PolNewProjectFeature >> Create_a_Minimal_New_Project [
         ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'test util' }
+PolNewProjectFeature >> decoratorFor: aConfigurationKeyName [
+
+	^ configurationByKeyName at: aConfigurationKeyName.
+]
+
+{ #category : #'test util' }
 PolNewProjectFeature >> findMethod: aSelector onClassName: aClassName [
 
-	"Return the method name or blank if not found."
+	"Return the method symbol or blank if not found."
 	
-	 ^ [ aClassName asClass methodDict at: aSelector ] on: NotFound, KeyNotFound do: [ '' ]
+	[ aClassName asClass methodDict at: aSelector ifPresent: [ ^ aSelector ] ] 
+		on: NotFound do: [ '' ].
+		
+	^ ''.
+]
+
+{ #category : #initialization }
+PolNewProjectFeature >> initialize [ 
+
+	configurationByKeyName := { 'Command Line' -> PolCommandLineMainClassDecorator } asDictionary.
 ]
