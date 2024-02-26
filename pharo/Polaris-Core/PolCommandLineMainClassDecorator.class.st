@@ -6,37 +6,18 @@ Class {
 	#category : #'Polaris-Core-Project-Decorator'
 }
 
-{ #category : #'project creation' }
-PolCommandLineMainClassDecorator >> activateMethodSourceForProject: projectName [
-
-
-	^ 'activate
-	| adaptor |
-	
-	adaptor := ZnZincServerAdaptor new. "Self registered..."
-	
-	adaptor port: (Smalltalk os environment at: #PORT ifAbsent: 8080) asInteger.
-	WAAdmin defaultServerManager startAll.
-	WAAdmin defaultDispatcher defaultName: ''', projectName , '''.
-
-	Smalltalk snapshot: false andQuit: false'
-]
-
 { #category : #configuration }
 PolCommandLineMainClassDecorator >> decorate [
 
-	<todo: 'Add tests?'>
+	(project projectName, 'Main') asClass subclass: #CommandLineHandler.
+]
 
-	| appClass appClassPackage |
-	appClassPackage := project projectName, '-Config'.
+{ #category : #configuration }
+PolCommandLineMainClassDecorator >> dependencies [
 
-	appClass := (CommandLineHandler << (project projectNamePrefixedAcronym , 'Main') asSymbol)
-		            slots: {  };
-		            package: appClassPackage;
-		            install.
-
-
-	appClass 	compile: (self activateMethodSourceForProject: project projectName)	classified: 'activate'
+	"Should return a list of dependents decorators. The default is no dependency, thus an empty list"
+	
+	^ { PolMinimalActivateMethodDecorator }.
 ]
 
 { #category : #configuration }

@@ -13,7 +13,20 @@ PolSeasideDecorator >> decorate [
 
 	self copyTemplateClass:  TemplateSeasideWebPage
 		replacingAll:  #('TemplateSeasideWebPage' 	'Polaris-Core-Template-Seaside' '''<projectTitle>''') 
-		by: { project projectName,'WebPage'. project projectName, '-Adapter-Seaside'. project projectName. }
+		by: { project projectName,'WebPage'. project projectName, '-Adapter-Seaside'. project projectName. }.
+		
+	
+
+'
+	| adaptor |
+	
+	adaptor := ZnZincServerAdaptor new. "Self registered..."
+	
+	adaptor port: (Smalltalk os environment at: #PORT ifAbsent: 8080) asInteger.
+	WAAdmin defaultServerManager startAll.
+	WAAdmin defaultDispatcher defaultName: '''''', projectName , ''''''.
+
+	Smalltalk snapshot: false andQuit: false'
 ]
 
 { #category : #configuration }

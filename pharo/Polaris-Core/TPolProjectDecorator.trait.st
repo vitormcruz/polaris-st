@@ -20,7 +20,22 @@ TPolProjectDecorator >> createClassNamed: aClassName commentedWith: aComment wit
 
 	| createdClass |
 	
-	createdClass := (Object << (project projectNamePrefixedAcronym , aClassName) asSymbol)
+	createdClass := (Object << aClassName asSymbol)
+		                slots: {  };
+		                package: project projectName , '-', aPackageSufix;
+		                install.
+
+	createdClass comment: aComment.
+	^ createdClass
+]
+
+{ #category : #configuration }
+TPolProjectDecorator >> createClassNamed: aClassName withTraits: aCollection commentedWith: aComment withSufixForPackage: aPackageSufix [
+
+	| createdClass |
+	
+	createdClass := (Object << aClassName asSymbol)
+								traits: aCollection;
 		                slots: {  };
 		                package: project projectName , '-', aPackageSufix;
 		                install.
@@ -53,7 +68,7 @@ TPolProjectDecorator >> dependencies [
 
 	"Should return a list of dependents decorators. The default is no dependency, thus an empty list"
 	
-	^ #().
+	^ {}.
 ]
 
 { #category : #configuration }

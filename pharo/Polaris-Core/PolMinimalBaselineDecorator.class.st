@@ -15,9 +15,10 @@ PolMinimalBaselineDecorator >> baselineSourceFor: projectNameString [
 	<baseline>
         
 	spec for: #''common'' do: [
-		spec blessing: #''baseline'';     
+		spec blessing: #''baseline''.
+		self executeExtensionsConfigsFor: spec.
 		
-		baseline: ''Buoy'' with: [ spec repository: ''github://ba-st/Buoy:v6.1.0/source'' ];
+		spec baseline: ''Buoy'' with: [ spec repository: ''github://ba-st/Buoy:v6.1.0/source'' ];
 		project: ''Buoy-Tests'' copyFrom: ''Buoy'' with: [ spec loads: #(''Dependent-SUnit-Extensions'') ];
 
 		package: ''{1}-Core'';
@@ -85,6 +86,7 @@ PolMinimalBaselineDecorator >> decorate [
 	
 	baselineName := 'BaselineOf', (project projectName).
 	baselineClass := (BaselineOf << baselineName asSymbol)
+								 traits: { TPolExecExtensionsForBaselineOf };
 		                 slots: {  };
 		                 package: baselineName;
 		                 install.

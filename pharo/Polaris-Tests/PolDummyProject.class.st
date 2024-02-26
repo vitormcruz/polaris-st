@@ -4,7 +4,7 @@ Class {
 	#classInstVars : [
 		'decorationChanges'
 	],
-	#category : #'Polaris-Tests-Project-Decorator'
+	#category : #'Polaris-Tests-Project'
 }
 
 { #category : #info }
@@ -19,6 +19,11 @@ PolDummyProject class >> acronym [
 PolDummyProject class >> addDummyChange: anObject [ 
 
 	decorationChanges add: anObject.
+]
+
+{ #category : #info }
+PolDummyProject class >> buildTool [
+    ^ #Metacello
 ]
 
 { #category : #accessing }
@@ -45,5 +50,5 @@ PolDummyProject class >> initialize [
 { #category : #info }
 PolDummyProject class >> projectName [
 
-	'DummyProject'
+	^ 'DummyProject'
 ]

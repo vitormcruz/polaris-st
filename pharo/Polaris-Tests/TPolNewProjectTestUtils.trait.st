@@ -22,21 +22,20 @@ TPolNewProjectTestUtils >> assertClass:  aClass isAtPackage: aPackage [
 ]
 
 { #category : #'test util' }
-TPolNewProjectTestUtils >> baselineClassNameForProject: projectName [
-
-    "Return the corresponding a Baseline Name for the provided projectName if it exists or an empty
-     string otherwise."
-
-    ^ [ ('BaselineOf' , projectName) asClass name ] on: NotFound do: [ '' ]
-]
-
-{ #category : #'test util' }
 TPolNewProjectTestUtils >> baselineMethodNameForProject: projectName [
 
 	"Return 'baseline' if both the BaselineOf class and the baseline method exists for the provided projectName, 
 	otherwise return an empty string."
 
     ^ [ (('BaselineOf' , projectName) asClass methodDict at: #baseline:) selector ] on: NotFound do: [ '' ]
+]
+
+{ #category : #'test util' }
+TPolNewProjectTestUtils >> classNameIfExists: className [
+
+    "Return the corresponding class name if it exists or an empty string otherwise."
+
+    ^ [ className asClass name ] on: NotFound do: [ '' ]
 ]
 
 { #category : #running }
