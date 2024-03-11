@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #configuration }
-PolCommandLineMainClassDecorator >> decorate [
+PolCommandLineMainClassDecorator >> decorateWithMe [
 
 	(project projectName, 'Main') asClass superclass: CommandLineHandler.
 ]

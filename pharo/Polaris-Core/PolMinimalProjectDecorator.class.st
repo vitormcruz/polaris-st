@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #configuration }
-PolMinimalProjectDecorator >> decorate [
+PolMinimalProjectDecorator >> decorateWithMe [
 
 	self	createClassNamed: project projectName, 'Entity'
 			commentedWith: 'I represent an Entity of the system. In a Clean Architecture, the Core package, where I am 

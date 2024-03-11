@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #configuration }
-PolNDummyDepDecorator >> decorate [
+PolNDummyDepDecorator >> decorateWithMe [
 
 	"Will be called during the project creation to make it's decoration "
 	

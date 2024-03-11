@@ -12,7 +12,9 @@ Trait {
 { #category : #configuration }
 TPolProjectDecorator classSide >> decorate: "PolProject" aProject [
 
-	^ self new project: aProject; decorateCompose.
+	"Calls decoration with it's default configuration."
+	
+	^ self new project: aProject; decorate.
 ]
 
 { #category : #configuration }
@@ -47,20 +49,22 @@ TPolProjectDecorator >> createClassNamed: aClassName withTraits: aCollection com
 { #category : #configuration }
 TPolProjectDecorator >> decorate [
 
-	"Will be called during the project creation to make it's decoration "
-	
-	self subclassResponsibility.
-]
-
-{ #category : #configuration }
-TPolProjectDecorator >> decorateCompose [
-
 	| dependenciesMissing |
 	
 	dependenciesMissing := self dependencies difference: project decorations.
 	dependenciesMissing do: [ :decorator | decorator decorate: project ].
-	self decorate.
+	self decorateWithMe.
 	project wasDecoratedBy: self class.
+]
+
+{ #category : #configuration }
+TPolProjectDecorator >> decorateWithMe [
+
+	"Will be called during the project creation to apply the decoration 
+	part of this class. The decoration process is a bigger part that 
+	composes the execution of multiple configured decorations."
+	
+	self subclassResponsibility.
 ]
 
 { #category : #configuration }

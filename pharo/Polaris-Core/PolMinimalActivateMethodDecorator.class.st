@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #configuration }
-PolMinimalActivateMethodDecorator >> decorate [
+PolMinimalActivateMethodDecorator >> decorateWithMe [
 
 	(project projectName, 'Main') asClass
 		compile: 'activate

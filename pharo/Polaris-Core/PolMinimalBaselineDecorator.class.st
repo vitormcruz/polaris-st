@@ -77,7 +77,7 @@ PolMinimalBaselineDecorator >> baselineSourceFullFor: projectNameString [
 ]
 
 { #category : #configuration }
-PolMinimalBaselineDecorator >> decorate [
+PolMinimalBaselineDecorator >> decorateWithMe [
 
 	| baselineName baselineClass |
 	

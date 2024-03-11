@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #configuration }
-PolSeasideDecorator >> decorate [
+PolSeasideDecorator >> decorateWithMe [
 
 	<todo: 'Add tests?'>
 

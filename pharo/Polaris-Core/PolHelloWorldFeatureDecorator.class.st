@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #configuration }
-PolHelloWorldFeatureDecorator >> decorate [
+PolHelloWorldFeatureDecorator >> decorateWithMe [
 
 	<todo: 'Add tests?'>
 

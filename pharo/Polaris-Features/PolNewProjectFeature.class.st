@@ -61,6 +61,28 @@ PolNewProjectFeature >> Create_a_Minimal_New_Project [
         ]
 ]
 
+{ #category : #scenarios }
+PolNewProjectFeature >> Create_an_Iceberg_Managed_New_Project [
+
+   <scenario>
+   ^ self
+        scenario: 'Creating a New Iceberg Managed Project'
+        def:	'Given a new project named BlogProject with an Iceberg repository named "blog-project-st"
+					 When I try to create it with Polaris using "Iceberg Managed" defaults configuration
+					 Then the project is created with minimal configuration 
+					 and with a new empty repository named "equals: ''blog-project-st''"'
+        run: [ :repoName :projectConfigurationName :assertRepoCreated |
+				assertRepoCreated testFailFor: ((IceRepository repositories collect: #name) detect: [ :it | repoName = it ] ifNone: ['']).
+				
+				(Polaris configureNewProject: 'BlogProject') 
+					becomeMinimal; 
+					addDecorators: {self decoratorFor: projectConfigurationName };
+					build.
+					
+				assertRepoCreated assertSuccessFor: ((IceRepository repositories collect: #name) detect: [ :it | repoName = it ]  ifNone: ['']).
+        ]
+]
+
 { #category : #'test util' }
 PolNewProjectFeature >> decoratorFor: aConfigurationKeyName [
 
@@ -81,5 +103,27 @@ PolNewProjectFeature >> findMethod: aSelector onClassName: aClassName [
 { #category : #initialization }
 PolNewProjectFeature >> initialize [ 
 
-	configurationByKeyName := { 'Command Line' -> PolCommandLineMainClassDecorator } asDictionary.
+	configurationByKeyName := { 'Command Line' -> PolCommandLineMainClassDecorator.
+											 'Iceberg Managed' -> PolIcebergManagedDecorator.
+											} asDictionary.
+]
+
+{ #category : #running }
+PolNewProjectFeature >> tearDown [ 
+
+	[
+		super tearDown.
+	   packagesCreatedToClean do: [ :packageName | RPackage organizer packageNamed: packageName ifPresent: #removeFromSystem ].
+	   methodsToClean do: [ :method | (RBRemoveMethodChange remove: ((method substrings: '>>#') at: 2) asSymbol
+		                                                    from: ((method substrings: '>>#') at: 1) asClass) execute ].
+	
+		IceRepository registry detect: [ :it | it name = 'blog-project-st' ] 
+			ifFound: [ :it | it delete ].
+			
+	] ensure: [ 
+		EpMonitor current enabled: epiceaMonitorStatusBeforeTests. 
+		subscriptions do: [ :subscription | SystemAnnouncer uniqueInstance removeSubscription: subscription ]
+		
+	]
+
 ]
