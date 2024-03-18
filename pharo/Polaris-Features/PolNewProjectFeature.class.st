@@ -121,6 +121,7 @@ PolNewProjectFeature >> tearDown [
 			ifFound: [ :it | it delete ].
 			
 	] ensure: [ 
+		self removeInstrumentationToAnnouncements.
 		EpMonitor current enabled: epiceaMonitorStatusBeforeTests. 
 		subscriptions do: [ :subscription | SystemAnnouncer uniqueInstance removeSubscription: subscription ]
 		

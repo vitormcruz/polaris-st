@@ -34,20 +34,25 @@ PolMinimalActivateMethodDecoratorTest class >> initialize [
 PolMinimalActivateMethodDecoratorTest >> setUp [
 
 	super setUp.
+	
+	self cleanZombiePolarisSubscriptions.
 	PolDummyProject clearDecorations.
 	self class clearCollectionForTest.
-	"I was unable to create an alieas to the setup method of the trait. An error ocurred."
-   epiceaMonitorStatusBeforeTests := EpMonitor current isEnabled.
-   EpMonitor current disable.
-   packagesCreatedToClean := OrderedCollection new.
-   methodsToClean := OrderedCollection new.
-   subscriptions := OrderedCollection new.
-   subscriptions add: (SystemAnnouncer uniqueInstance when: ClassTagAdded
-                                                      do: [ :classAddedAnn | packagesCreatedToClean add: classAddedAnn package name ]).
+	"Was unable to reuse setup from trait, alias isn't working. "
+	epiceaMonitorStatusBeforeTests := EpMonitor current isEnabled.
+	EpMonitor current disable.
+	packagesCreatedToClean := OrderedCollection new.
+	methodsToClean := OrderedCollection new.
+	subscriptions := OrderedCollection new.
+	self instrumentAnnouncements: {	(ClassTagAnnouncement >> #package:).	(MethodAnnouncement >> #method:) }.
 
-   subscriptions add: (SystemAnnouncer uniqueInstance when: MethodAdded 
-                                                      do: [ :methodAddedAnn | self handleMethodAdded: methodAddedAnn 
-	                                                                                consideringPackageCreated: packagesCreatedToClean ]).
+	subscriptions add: (SystemAnnouncer uniqueInstance
+									when: ClassTagAdded
+			 						do: [ :classAddedAnn | self processClassTagAdded: classAddedAnn ]).
+
+	subscriptions add: (SystemAnnouncer uniqueInstance 
+									when: MethodAdded 
+									do: [ :methodAddedAnn | self handleMethodAdded: methodAddedAnn consideringPackageCreated: packagesCreatedToClean ])
 ]
 
 { #category : #tests }
