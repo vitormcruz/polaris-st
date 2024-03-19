@@ -4,7 +4,7 @@ A PolMinimalActivateMethodDecoratorTest is a test class for testing the behavior
 Class {
 	#name : #PolMinimalActivateMethodDecoratorTest,
 	#superclass : #TestCase,
-	#traits : 'TPolNewProjectTestUtils',
+	#traits : 'TPolNewProjectTestUtils @ {#setUpNewProjectTestUtils->#setUp}',
 	#classTraits : 'TPolNewProjectTestUtils classTrait',
 	#classInstVars : [
 		'collectionForTest'
@@ -32,27 +32,13 @@ PolMinimalActivateMethodDecoratorTest class >> initialize [
 
 { #category : #running }
 PolMinimalActivateMethodDecoratorTest >> setUp [
-
-	super setUp.
 	
+	super setUp.
 	self cleanZombiePolarisSubscriptions.
 	PolDummyProject clearDecorations.
 	self class clearCollectionForTest.
-	"Was unable to reuse setup from trait, alias isn't working. "
-	epiceaMonitorStatusBeforeTests := EpMonitor current isEnabled.
-	EpMonitor current disable.
-	packagesCreatedToClean := OrderedCollection new.
-	methodsToClean := OrderedCollection new.
-	subscriptions := OrderedCollection new.
-	self instrumentAnnouncements: {	(ClassTagAnnouncement >> #package:).	(MethodAnnouncement >> #method:) }.
-
-	subscriptions add: (SystemAnnouncer uniqueInstance
-									when: ClassTagAdded
-			 						do: [ :classAddedAnn | self processClassTagAdded: classAddedAnn ]).
-
-	subscriptions add: (SystemAnnouncer uniqueInstance 
-									when: MethodAdded 
-									do: [ :methodAddedAnn | self handleMethodAdded: methodAddedAnn consideringPackageCreated: packagesCreatedToClean ])
+	self setUpNewProjectTestUtils.
+	
 ]
 
 { #category : #tests }
